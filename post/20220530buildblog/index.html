@@ -212,27 +212,27 @@ Hugo是用Golang写的，因此它生成网站的速度也更快一些。</p>
 <h2 id="快速搭建">快速搭建</h2>
 <p>安装完Hugo后，可以通过一下命令快速创建网站项目</p>
 <div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>hugo new site my_blog
-</span></span></code></pre></div><p>然后就会在当前路径下生成名为<code>my_blog</code>的文件夹以及内部基础的文件。接下来就需要为你的网站设置一个主题。</p>
+</span></span></code></pre></div><p>然后就会在当前路径下生成名为 <strong>my_blog/</strong> 的文件夹以及内部基础的文件。接下来就需要为你的网站设置一个主题。</p>
 <h2 id="选择主题">选择主题</h2>
 <p>前面说到Hugo的主题很多，都可以在它的<a href="https://themes.gohugo.io/">官网</a>上找到。
 我选的主题是<a href="https://heysh.xyz/">He Yeshuang</a>分享的<a href="https://themes.gohugo.io/themes/hugo-theme-tokiwa/">Tokiwa</a>。
-主题的设置也很简单，以Tokwa为例，首先把主题的源码clone到项目根目录下的<code>theme</code>文件夹中</p>
+主题的设置也很简单，以Tokwa为例，首先把主题的源码clone到项目根目录下的 <strong>theme/</strong> 文件夹中</p>
 <div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#111">cd</span> my_blog
 </span></span><span style="display:flex;"><span>git submodule add https://github.com/heyeshuang/hugo-theme-tokiwa.git themes/hugo-theme-tokiwa
-</span></span></code></pre></div><p>然后，修改根目录下的<code>config.toml</code>文件，在里面加上一句</p>
+</span></span></code></pre></div><p>然后，修改根目录下的 <strong>config.toml</strong> 文件，在里面加上一句</p>
 <pre tabindex="0"><code>theme = &#34;hugo-theme-tokiwa&#34;
-</code></pre><p>随后便会找到<code>theme/</code>文件夹下同名的主题并应用。</p>
-<p>或者，通常主题源码被clone下来后，会带有配置示例，一般会放在<code>theme/xxx/exampleSite</code>文件夹下，把里面的文件复制到网站根目录下替换原有文件即可。</p>
+</code></pre><p>随后便会找到**theme/**文件夹下同名的主题并应用。</p>
+<p>或者，通常主题源码被clone下来后，会带有配置示例，一般会放在 <strong>theme/xxx/exampleSite/</strong> 文件夹下，把里面的文件复制到网站根目录下替换原有文件即可。</p>
 <p>然后我们可以在根目录下执行</p>
 <div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>hugo server 
-</span></span></code></pre></div><p>然后通过<code>http://localhost:1313/</code>，来查看网站大概长什么样。</p>
+</span></span></code></pre></div><p>然后通过 <strong>http://localhost:1313/</strong> ，来查看网站大概长什么样。</p>
 <h2 id="部署到github-pages">部署到GitHub Pages</h2>
-<p>首先创建 <code>xxx.github.io</code> 的repo（参考<a href="https://pages.github.com/">官网</a>）。
-随后在<code>config.toml</code>文件中添加</p>
+<p>首先创建 <strong>xxx.github.io</strong> 的repo（参考<a href="https://pages.github.com/">官网</a>）。
+随后在 <strong>config.toml</strong> 文件中添加</p>
 <pre tabindex="0"><code>baseURL = &#34;https://xxxxx.github.io/&#34;
 </code></pre><p>来制定网站域名，执行</p>
 <div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>hugo
-</span></span></code></pre></div><p>生成静态网站资源，然根目录下会生成新的文件夹<code>public/</code>，我们将这个文件夹和我们的 pages repo 链接</p>
+</span></span></code></pre></div><p>生成静态网站资源，然根目录下会生成新的文件夹 <strong>public/</strong> ，我们将这个文件夹和我们的 pages repo 链接</p>
 <div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#111">cd</span> public
 </span></span><span style="display:flex;"><span>git init
 </span></span><span style="display:flex;"><span>git add .
@@ -240,7 +240,7 @@ Hugo是用Golang写的，因此它生成网站的速度也更快一些。</p>
 </span></span><span style="display:flex;"><span>git remote add origin https://github.com/xxx/xxx.github.io.git
 </span></span><span style="display:flex;"><span>git branch -M main
 </span></span><span style="display:flex;"><span>git push origin main
-</span></span></code></pre></div><p>Github pages生效需要一些时间，等一会就可以通过<code>https://xxx.github.io</code>来访问自己的博客了。</p>
+</span></span></code></pre></div><p>Github pages生效需要一些时间，等一会就可以通过 <strong><a href="https://xxx.github.io">https://xxx.github.io</a></strong> 来访问自己的博客了。</p>
 <h2 id="发布文章">发布文章</h2>
 <p>通过以下名来生成新的文件</p>
 <div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>hugo new post/20220530BuildBlog.md
@@ -254,19 +254,19 @@ Hugo是用Golang写的，因此它生成网站的速度也更快一些。</p>
 </span></span><span style="display:flex;"><span>categories: [&#34;记录&#34;]
 </span></span><span style="display:flex;"><span>toc: true
 </span></span><span style="display:flex;"><span>---
-</span></span></code></pre></div><p>文章完成后就可以通过<code>hugo</code>命令来生成网站，再把<code>public/</code>更新到GitHub上。（记得把文章的<code>draft</code>属性设置为<code>false</code>)</p>
+</span></span></code></pre></div><p>文章完成后就可以通过 <strong>hugo</strong> 命令来生成网站，再把 <strong>public/</strong> 更新到GitHub上。（记得把文章的draft属性设置为false)</p>
 <h2 id="添加评论模块">添加评论模块</h2>
 <p>Tokiwa用的是Hugo内置的<a href="https://disqus.com/">Disqus</a>模块，但在国内感觉这个用起来不太方便，
 就找了个平替，基于Github issue search API的<a href="utteranc.es">utterances</a>，可有通过Github账号来进行评论
-配置起来也特别方便，安装<a href="https://github.com/apps/utterances">utterances github app</a>，然后配置可以直接选择我们<code>xxxx.github.io</code>的repo，
+配置起来也特别方便，安装<a href="https://github.com/apps/utterances">utterances github app</a>，然后配置可以直接选择我们 <strong>xxxx.github.io</strong> 的repo，
 这样的话之后关于我们文章的评论都会以issue的形式存储在这个仓库中。</p>
 <p>然后就是要把这个模块添加到我们的site中，首先我们要找到我们希望放置评论模块的位置，我们文章的页面是通过模版生成的，所以需要修改统一的模板，
-还是以Tokiwa为例，Tokiwa评论的模板位置放在<code>themes/hugo-theme-tokiwa/layouts/partials/page-footer.html</code>，
+还是以Tokiwa为例，Tokiwa评论的模板位置放在 <strong>themes/hugo-theme-tokiwa/layouts/partials/page-footer.html</strong> ，
 可以看到最下面有</p>
 <div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#111">&lt;</span><span style="color:#f92672">div</span> <span style="color:#75af00">class</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;pb-2&#34;</span><span style="color:#111">&gt;</span>
 </span></span><span style="display:flex;"><span>    {{ template &#34;_internal/disqus.html&#34; .  }}
 </span></span><span style="display:flex;"><span><span style="color:#111">&lt;/</span><span style="color:#f92672">div</span><span style="color:#111">&gt;</span>
-</span></span></code></pre></div><p>这是使用了Hugo的内置模板，我们需要做的就是替换掉这部分，首先我们创建一个新的文件<code>themes/hugo-theme-tokiwa/layouts/partials/utterances.html</code></p>
+</span></span></code></pre></div><p>这是使用了Hugo的内置模板，我们需要做的就是替换掉这部分，首先我们创建一个新的文件 <strong>themes/hugo-theme-tokiwa/layouts/partials/utterances.html</strong></p>
 <div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#111">&lt;</span><span style="color:#f92672">script</span> <span style="color:#75af00">src</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;https://utteranc.es/client.js&#34;</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#75af00">repo</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;xxx/xxx.github.io&#34;</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#75af00">issue-term</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;pathname&#34;</span>
@@ -369,7 +369,7 @@ Hugo是用Golang写的，因此它生成网站的速度也更快一些。</p>
 	<div class="text-sm text-gray-500 leading-tight a-gray">
 		
 		<br />
-		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 1571 words in this page.
+		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 1343 words in this page.
 	</div>
 </div>
 

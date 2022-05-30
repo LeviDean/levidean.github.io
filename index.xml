@@ -35,27 +35,27 @@ Hugo是用Golang写的，因此它生成网站的速度也更快一些。&lt;/p&
 &lt;h2 id=&#34;快速搭建&#34;&gt;快速搭建&lt;/h2&gt;
 &lt;p&gt;安装完Hugo后，可以通过一下命令快速创建网站项目&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;hugo new site my_blog
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;然后就会在当前路径下生成名为&lt;code&gt;my_blog&lt;/code&gt;的文件夹以及内部基础的文件。接下来就需要为你的网站设置一个主题。&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;然后就会在当前路径下生成名为 &lt;strong&gt;my_blog/&lt;/strong&gt; 的文件夹以及内部基础的文件。接下来就需要为你的网站设置一个主题。&lt;/p&gt;
 &lt;h2 id=&#34;选择主题&#34;&gt;选择主题&lt;/h2&gt;
 &lt;p&gt;前面说到Hugo的主题很多，都可以在它的&lt;a href=&#34;https://themes.gohugo.io/&#34;&gt;官网&lt;/a&gt;上找到。
 我选的主题是&lt;a href=&#34;https://heysh.xyz/&#34;&gt;He Yeshuang&lt;/a&gt;分享的&lt;a href=&#34;https://themes.gohugo.io/themes/hugo-theme-tokiwa/&#34;&gt;Tokiwa&lt;/a&gt;。
-主题的设置也很简单，以Tokwa为例，首先把主题的源码clone到项目根目录下的&lt;code&gt;theme&lt;/code&gt;文件夹中&lt;/p&gt;
+主题的设置也很简单，以Tokwa为例，首先把主题的源码clone到项目根目录下的 &lt;strong&gt;theme/&lt;/strong&gt; 文件夹中&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#111&#34;&gt;cd&lt;/span&gt; my_blog
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git submodule add https://github.com/heyeshuang/hugo-theme-tokiwa.git themes/hugo-theme-tokiwa
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;然后，修改根目录下的&lt;code&gt;config.toml&lt;/code&gt;文件，在里面加上一句&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;然后，修改根目录下的 &lt;strong&gt;config.toml&lt;/strong&gt; 文件，在里面加上一句&lt;/p&gt;
 &lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;theme = &amp;#34;hugo-theme-tokiwa&amp;#34;
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;随后便会找到&lt;code&gt;theme/&lt;/code&gt;文件夹下同名的主题并应用。&lt;/p&gt;
-&lt;p&gt;或者，通常主题源码被clone下来后，会带有配置示例，一般会放在&lt;code&gt;theme/xxx/exampleSite&lt;/code&gt;文件夹下，把里面的文件复制到网站根目录下替换原有文件即可。&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;随后便会找到**theme/**文件夹下同名的主题并应用。&lt;/p&gt;
+&lt;p&gt;或者，通常主题源码被clone下来后，会带有配置示例，一般会放在 &lt;strong&gt;theme/xxx/exampleSite/&lt;/strong&gt; 文件夹下，把里面的文件复制到网站根目录下替换原有文件即可。&lt;/p&gt;
 &lt;p&gt;然后我们可以在根目录下执行&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;hugo server 
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;然后通过&lt;code&gt;http://localhost:1313/&lt;/code&gt;，来查看网站大概长什么样。&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;然后通过 &lt;strong&gt;http://localhost:1313/&lt;/strong&gt; ，来查看网站大概长什么样。&lt;/p&gt;
 &lt;h2 id=&#34;部署到github-pages&#34;&gt;部署到GitHub Pages&lt;/h2&gt;
-&lt;p&gt;首先创建 &lt;code&gt;xxx.github.io&lt;/code&gt; 的repo（参考&lt;a href=&#34;https://pages.github.com/&#34;&gt;官网&lt;/a&gt;）。
-随后在&lt;code&gt;config.toml&lt;/code&gt;文件中添加&lt;/p&gt;
+&lt;p&gt;首先创建 &lt;strong&gt;xxx.github.io&lt;/strong&gt; 的repo（参考&lt;a href=&#34;https://pages.github.com/&#34;&gt;官网&lt;/a&gt;）。
+随后在 &lt;strong&gt;config.toml&lt;/strong&gt; 文件中添加&lt;/p&gt;
 &lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;baseURL = &amp;#34;https://xxxxx.github.io/&amp;#34;
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;来制定网站域名，执行&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;hugo
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;生成静态网站资源，然根目录下会生成新的文件夹&lt;code&gt;public/&lt;/code&gt;，我们将这个文件夹和我们的 pages repo 链接&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;生成静态网站资源，然根目录下会生成新的文件夹 &lt;strong&gt;public/&lt;/strong&gt; ，我们将这个文件夹和我们的 pages repo 链接&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#111&#34;&gt;cd&lt;/span&gt; public
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git init
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git add .
@@ -63,7 +63,7 @@ Hugo是用Golang写的，因此它生成网站的速度也更快一些。&lt;/p&
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git remote add origin https://github.com/xxx/xxx.github.io.git
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git branch -M main
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git push origin main
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Github pages生效需要一些时间，等一会就可以通过&lt;code&gt;https://xxx.github.io&lt;/code&gt;来访问自己的博客了。&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Github pages生效需要一些时间，等一会就可以通过 &lt;strong&gt;&lt;a href=&#34;https://xxx.github.io&#34;&gt;https://xxx.github.io&lt;/a&gt;&lt;/strong&gt; 来访问自己的博客了。&lt;/p&gt;
 &lt;h2 id=&#34;发布文章&#34;&gt;发布文章&lt;/h2&gt;
 &lt;p&gt;通过以下名来生成新的文件&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;hugo new post/20220530BuildBlog.md
@@ -77,19 +77,19 @@ Hugo是用Golang写的，因此它生成网站的速度也更快一些。&lt;/p&
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;categories: [&amp;#34;记录&amp;#34;]
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;toc: true
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;---
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;文章完成后就可以通过&lt;code&gt;hugo&lt;/code&gt;命令来生成网站，再把&lt;code&gt;public/&lt;/code&gt;更新到GitHub上。（记得把文章的&lt;code&gt;draft&lt;/code&gt;属性设置为&lt;code&gt;false&lt;/code&gt;)&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;文章完成后就可以通过 &lt;strong&gt;hugo&lt;/strong&gt; 命令来生成网站，再把 &lt;strong&gt;public/&lt;/strong&gt; 更新到GitHub上。（记得把文章的draft属性设置为false)&lt;/p&gt;
 &lt;h2 id=&#34;添加评论模块&#34;&gt;添加评论模块&lt;/h2&gt;
 &lt;p&gt;Tokiwa用的是Hugo内置的&lt;a href=&#34;https://disqus.com/&#34;&gt;Disqus&lt;/a&gt;模块，但在国内感觉这个用起来不太方便，
 就找了个平替，基于Github issue search API的&lt;a href=&#34;utteranc.es&#34;&gt;utterances&lt;/a&gt;，可有通过Github账号来进行评论
-配置起来也特别方便，安装&lt;a href=&#34;https://github.com/apps/utterances&#34;&gt;utterances github app&lt;/a&gt;，然后配置可以直接选择我们&lt;code&gt;xxxx.github.io&lt;/code&gt;的repo，
+配置起来也特别方便，安装&lt;a href=&#34;https://github.com/apps/utterances&#34;&gt;utterances github app&lt;/a&gt;，然后配置可以直接选择我们 &lt;strong&gt;xxxx.github.io&lt;/strong&gt; 的repo，
 这样的话之后关于我们文章的评论都会以issue的形式存储在这个仓库中。&lt;/p&gt;
 &lt;p&gt;然后就是要把这个模块添加到我们的site中，首先我们要找到我们希望放置评论模块的位置，我们文章的页面是通过模版生成的，所以需要修改统一的模板，
-还是以Tokiwa为例，Tokiwa评论的模板位置放在&lt;code&gt;themes/hugo-theme-tokiwa/layouts/partials/page-footer.html&lt;/code&gt;，
+还是以Tokiwa为例，Tokiwa评论的模板位置放在 &lt;strong&gt;themes/hugo-theme-tokiwa/layouts/partials/page-footer.html&lt;/strong&gt; ，
 可以看到最下面有&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#111&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;div&lt;/span&gt; &lt;span style=&#34;color:#75af00&#34;&gt;class&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#d88200&#34;&gt;&amp;#34;pb-2&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;&amp;gt;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    {{ template &amp;#34;_internal/disqus.html&amp;#34; .  }}
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#111&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;div&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;&amp;gt;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这是使用了Hugo的内置模板，我们需要做的就是替换掉这部分，首先我们创建一个新的文件&lt;code&gt;themes/hugo-theme-tokiwa/layouts/partials/utterances.html&lt;/code&gt;&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这是使用了Hugo的内置模板，我们需要做的就是替换掉这部分，首先我们创建一个新的文件 &lt;strong&gt;themes/hugo-theme-tokiwa/layouts/partials/utterances.html&lt;/strong&gt;&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#111&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;script&lt;/span&gt; &lt;span style=&#34;color:#75af00&#34;&gt;src&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#d88200&#34;&gt;&amp;#34;https://utteranc.es/client.js&amp;#34;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#75af00&#34;&gt;repo&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#d88200&#34;&gt;&amp;#34;xxx/xxx.github.io&amp;#34;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#75af00&#34;&gt;issue-term&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#d88200&#34;&gt;&amp;#34;pathname&amp;#34;&lt;/span&gt;
