@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	
-	<title>Deer Park </title>
+	<title>Deer Park  | 搭建 Hugo &#43; Github Pages 博客</title>
 	<meta name="viewport" content="width=device-width,minimum-scale=1">
 	<meta name="generator" content="Hugo 0.99.1" />
 	
@@ -155,17 +155,57 @@ onload='renderMathInElement(document.body);'></script>
 		<a href="https://deerdean.github.io/" title="Deer Park" class="heading font-cursive icon">Deer Park</a>
 	</h2>
 </div>
-<h1 class="pt-2"></h1>
+<h1 class="pt-2">搭建 Hugo &#43; Github Pages 博客</h1>
+
+<h3 class="text-java-700 font-normal leading-relaxed pt-2">记录一下如何构建Hugo博客</h3>
 
 <div class="flex flex-wrap justify-end pt-2 "><div class="md:flex-grow-0 font-light">
 	
-
+	
+	
+	
+	<a class="post-taxonomy-category text-medium-red-violet-600 hover:text-medium-red-violet-400"
+		href='/categories/%E8%AE%B0%E5%BD%95'>记录</a>
+	
+	
 	
 
+	
+	&nbsp;&nbsp;
+	
+
+	
+	
+	
+	
+	<a class="post-taxonomy-tag text-eucalyptus-500"
+		href='/tags/blog'>Blog</a>&nbsp;&#47;
+	
+	<a class="post-taxonomy-tag text-eucalyptus-500"
+		href='/tags/hugo'>Hugo</a>
+	
+	
 	
 </div><time class="text-eucalyptus-500 md:text-right md:flex-grow font-light pl-4"
-		datetime="2019-05-28T00:00:00Z">2019-5-28</time>
+		datetime="2022-05-30T08:51:20&#43;08:00">2022-5-30</time>
 </div>
+
+<details class="toc" open>
+<summary>
+    <hr />
+</summary>
+<div class="inline toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#安装hugo">安装Hugo</a></li>
+    <li><a href="#快速搭建">快速搭建</a></li>
+    <li><a href="#选择主题">选择主题</a></li>
+    <li><a href="#部署到github-pages">部署到GitHub Pages</a></li>
+    <li><a href="#发布文章">发布文章</a></li>
+  </ul>
+</nav>
+</div>
+</details>
 
 <hr />
 
@@ -177,7 +217,58 @@ onload='renderMathInElement(document.body);'></script>
 
 <article>
 	<section class="mx-auto content">
-		<div class="c-rich-text"></div>
+		<div class="c-rich-text"><p>觉得有必要搭建一下blog，记录一下自己的一些学习笔记。没有写网页的基础，又觉得租服务器和域名备案太麻烦了，所以选择了高校低成本的方法：<strong>github pages + 静态网站</strong> 的方式。
+然后在<a href="https://hexo.io/zh-cn/">Hexo</a>、<a href="https://jekyllrb.com/">Jekyll</a>和<a href="https://gohugo.io/">Hugo</a>中纠结了一番，虽然github pages自带Jekyll，但相比之下，Hugo的社区群体更大，也拥有更多的主题，因此就选择了使用Hugo来搭建。
+Hugo是用Golang写的，因此它生成网站的速度也更快一些。</p>
+<h2 id="安装hugo">安装Hugo</h2>
+<p>这部分可以直接参考<a href="https://gohugo.io/getting-started/installing/">Hugo官网的Doc</a>。</p>
+<h2 id="快速搭建">快速搭建</h2>
+<p>安装完Hugo后，可以通过一下命令快速创建网站项目</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>hugo new site my_blog
+</span></span></code></pre></div><p>然后就会在当前路径下生成名为<code>my_blog</code>的文件夹以及内部基础的文件。接下来就需要为你的网站设置一个主题。</p>
+<h2 id="选择主题">选择主题</h2>
+<p>前面说到Hugo的主题很多，都可以在它的<a href="https://themes.gohugo.io/">官网</a>上找到。
+我选的主题是<a href="https://heysh.xyz/">He Yeshuang</a>分享的<a href="https://themes.gohugo.io/themes/hugo-theme-tokiwa/">Tokiwa</a>。
+主题的设置也很简单，以Tokwa为例，首先把主题的源码clone到项目根目录下的<code>theme</code>文件夹中</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#111">cd</span> my_blog
+</span></span><span style="display:flex;"><span>git submodule add https://github.com/heyeshuang/hugo-theme-tokiwa.git themes/hugo-theme-tokiwa
+</span></span></code></pre></div><p>然后，修改根目录下的<code>config.toml</code>文件，在里面加上一句</p>
+<pre tabindex="0"><code>theme = &#34;hugo-theme-tokiwa&#34;
+</code></pre><p>随后便会找到<code>theme/</code>文件夹下同名的主题并应用。</p>
+<p>或者，通常主题源码被clone下来后，会带有配置示例，一般会放在<code>theme/xxx/exampleSite</code>文件夹下，把里面的文件复制到网站根目录下替换原有文件即可。</p>
+<p>然后我们可以在根目录下执行</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>hugo server 
+</span></span></code></pre></div><p>然后通过<code>http://localhost:1313/</code>，来查看网站大概长什么样。</p>
+<h2 id="部署到github-pages">部署到GitHub Pages</h2>
+<p>首先创建 <code>xxx.github.io</code> 的repo（参考<a href="https://pages.github.com/">官网</a>）。
+随后在<code>config.toml</code>文件中添加</p>
+<pre tabindex="0"><code>baseURL = &#34;https://xxxxx.github.io/&#34;
+</code></pre><p>来制定网站域名，执行</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>hugo
+</span></span></code></pre></div><p>生成静态网站资源，然根目录下会生成新的文件夹<code>public/</code>，我们将这个文件夹和我们的 pages repo 链接</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#111">cd</span> public
+</span></span><span style="display:flex;"><span>git init
+</span></span><span style="display:flex;"><span>git add .
+</span></span><span style="display:flex;"><span>git commit -m<span style="color:#d88200">&#34;blog init&#34;</span>
+</span></span><span style="display:flex;"><span>git remote add origin https://github.com/xxx/xxx.github.io.git
+</span></span><span style="display:flex;"><span>git branch -M main
+</span></span><span style="display:flex;"><span>git push origin main
+</span></span></code></pre></div><p>Github pages生效需要一些时间，等一会就可以通过<code>https://xxx.github.io</code>来访问自己的博客了。</p>
+<h2 id="发布文章">发布文章</h2>
+<p>通过以下名来生成新的文件</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>hugo new post/20220530BuildBlog.md
+</span></span></code></pre></div><p>并通过修改markdown文件的头部内容来为文章添加tags和分类，以及其他的一些属性</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span>title: &#34;搭建 Hugo + Github Pages 博客&#34;
+</span></span><span style="display:flex;"><span>date: 2022-05-30T08:51:20+08:00
+</span></span><span style="display:flex;"><span>draft: true
+</span></span><span style="display:flex;"><span>description: &#34;记录一下如何构建Hugo博客&#34;
+</span></span><span style="display:flex;"><span>tags: [&#34;Blog&#34;, &#34;Hugo&#34;]
+</span></span><span style="display:flex;"><span>categories: [&#34;记录&#34;]
+</span></span><span style="display:flex;"><span>toc: true
+</span></span><span style="display:flex;"><span>---
+</span></span></code></pre></div><p>文章完成后就可以通过<code>hugo</code>命令来生成网站，再把<code>public/</code>更新到GitHub上。（记得把文章的<code>draft</code>属性设置为<code>false</code>)</p>
+</div>
 	</section>
 
 
@@ -194,7 +285,8 @@ onload='renderMathInElement(document.body);'></script>
 	
 	
 	<li class="px-1 md:px-0">
-		<a href="/post/" title="Posts page" >
+		<a href="/post/" title="Posts page" 
+			class="font-medium text-medium-red-violet-600 hover:text-medium-red-violet-400" >
 			Posts
 		</a>
 	</li>
@@ -252,7 +344,7 @@ onload='renderMathInElement(document.body);'></script>
 	<div class="text-sm text-gray-500 leading-tight a-gray">
 		
 		<br />
-		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 0 words in this page.
+		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 1006 words in this page.
 	</div>
 </div>
 
@@ -263,21 +355,14 @@ onload='renderMathInElement(document.body);'></script>
 <hr class="double-line" />
 <div class="flex flex-wrap justify-between pb-2 leading-loose font-serif">
     
-    <a class="flex-grow-0" href="/about/">
+    <a class="flex-grow-0" href="/archives/">
         <svg class="fill-current inline-block h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
             height="24">
             <path fill="none" d="M0 0h24v24H0z" />
             <path d="M7.828 11H20v2H7.828l5.364 5.364-1.414 1.414L4 12l7.778-7.778 1.414 1.414z" /></svg>
-        About
+        
     </a>
     
-    
-    <a class="flex-grow-0" href="/post/20220530buildblog/">
-        搭建 Hugo &#43; Github Pages 博客
-        <svg class="fill-current inline-block h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
-            height="24">
-            <path fill="none" d="M0 0h24v24H0z" />
-            <path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z" /></svg></a>
     
 </div>
 <div >
