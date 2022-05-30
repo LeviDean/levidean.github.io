@@ -78,6 +78,30 @@ Hugo是用Golang写的，因此它生成网站的速度也更快一些。&lt;/p&
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;toc: true
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;---
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;文章完成后就可以通过&lt;code&gt;hugo&lt;/code&gt;命令来生成网站，再把&lt;code&gt;public/&lt;/code&gt;更新到GitHub上。（记得把文章的&lt;code&gt;draft&lt;/code&gt;属性设置为&lt;code&gt;false&lt;/code&gt;)&lt;/p&gt;
+&lt;h2 id=&#34;添加评论模块&#34;&gt;添加评论模块&lt;/h2&gt;
+&lt;p&gt;Tokiwa用的是Hugo内置的&lt;a href=&#34;https://disqus.com/&#34;&gt;Disqus&lt;/a&gt;模块，但在国内感觉这个用起来不太方便，
+就找了个平替，基于Github issue search API的&lt;a href=&#34;utteranc.es&#34;&gt;utterances&lt;/a&gt;，可有通过Github账号来进行评论
+配置起来也特别方便，安装&lt;a href=&#34;https://github.com/apps/utterances&#34;&gt;utterances github app&lt;/a&gt;，然后配置可以直接选择我们&lt;code&gt;xxxx.github.io&lt;/code&gt;的repo，
+这样的话之后关于我们文章的评论都会以issue的形式存储在这个仓库中。&lt;/p&gt;
+&lt;p&gt;然后就是要把这个模块添加到我们的site中，首先我们要找到我们希望放置评论模块的位置，我们文章的页面是通过模版生成的，所以需要修改统一的模板，
+还是以Tokiwa为例，Tokiwa评论的模板位置放在&lt;code&gt;themes/hugo-theme-tokiwa/layouts/partials/page-footer.html&lt;/code&gt;，
+可以看到最下面有&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#111&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;div&lt;/span&gt; &lt;span style=&#34;color:#75af00&#34;&gt;class&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#d88200&#34;&gt;&amp;#34;pb-2&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    {{ template &amp;#34;_internal/disqus.html&amp;#34; .  }}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#111&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;div&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这是使用了Hugo的内置模板，我们需要做的就是替换掉这部分，首先我们创建一个新的文件&lt;code&gt;themes/hugo-theme-tokiwa/layouts/partials/utterances.html&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#111&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;script&lt;/span&gt; &lt;span style=&#34;color:#75af00&#34;&gt;src&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#d88200&#34;&gt;&amp;#34;https://utteranc.es/client.js&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#75af00&#34;&gt;repo&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#d88200&#34;&gt;&amp;#34;xxx/xxx.github.io&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#75af00&#34;&gt;issue-term&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#d88200&#34;&gt;&amp;#34;pathname&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#75af00&#34;&gt;theme&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#d88200&#34;&gt;&amp;#34;github-light&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#75af00&#34;&gt;crossorigin&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#d88200&#34;&gt;&amp;#34;anonymous&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#75af00&#34;&gt;async&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#111&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;script&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这部分代码utterances主页上有根据不同需求生成，记得替换其中的repo即刻，然后我们把刚刚footer中的模板替换掉就可以了。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#111&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;div&lt;/span&gt; &lt;span style=&#34;color:#75af00&#34;&gt;class&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#d88200&#34;&gt;&amp;#34;pb-2&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    {{ partial &amp;#34;utterances.html&amp;#34; . }}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#111&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;div&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;其他主题也是差不多，效果就像下面一样了。&lt;/p&gt;
 </description>
     </item>
     
