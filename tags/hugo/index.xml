@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hugo on Deer Park</title>
+    <link>https://example.com/tags/hugo/</link>
+    <description>Recent content in Hugo on Deer Park</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>cn</language>
+    <lastBuildDate>Mon, 30 May 2022 08:51:20 +0800</lastBuildDate>
+    
+	<atom:link href="https://example.com/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>搭建Hugo博客</title>
+      <link>https://example.com/post/%E6%90%AD%E5%BB%BAhugo%E5%8D%9A%E5%AE%A2/</link>
+      <pubDate>Mon, 30 May 2022 08:51:20 +0800</pubDate>
+      
+      <guid>https://example.com/post/%E6%90%AD%E5%BB%BAhugo%E5%8D%9A%E5%AE%A2/</guid>
+      <description>&lt;p&gt;觉得有必要搭建一下blog，记录一下自己的一些学习笔记。没有写网页的基础，又觉得租服务器和域名备案太麻烦了，所以选择了高校低成本的方法：&lt;strong&gt;github pages + 静态网站&lt;/strong&gt; 的方式。
+然后在&lt;a href=&#34;https://hexo.io/zh-cn/&#34;&gt;Hexo&lt;/a&gt;、&lt;a href=&#34;https://jekyllrb.com/&#34;&gt;Jekyll&lt;/a&gt;和&lt;a href=&#34;https://gohugo.io/&#34;&gt;Hugo&lt;/a&gt;中纠结了一番，虽然github pages自带Jekyll，但相比之下，Hugo的社区群体更大，也拥有更多的主题，因此就选择了使用Hugo来搭建。
+Hugo是用Golang写的，因此它生成网站的速度也更快一些。&lt;/p&gt;
+&lt;h2 id=&#34;安装hugo&#34;&gt;安装Hugo&lt;/h2&gt;
+&lt;p&gt;这部分可以直接参考&lt;a href=&#34;https://gohugo.io/getting-started/installing/&#34;&gt;Hugo官网的Doc&lt;/a&gt;。&lt;/p&gt;
+&lt;h2 id=&#34;快速搭建&#34;&gt;快速搭建&lt;/h2&gt;
+&lt;p&gt;安装完Hugo后，可以通过一下命令快速创建网站项目&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;hugo new site my_blog
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;然后就会在当前路径下生成名为&lt;code&gt;my_blog&lt;/code&gt;的文件夹以及内部基础的文件。接下来就需要为你的网站设置一个主题。&lt;/p&gt;
+&lt;h2 id=&#34;选择主题&#34;&gt;选择主题&lt;/h2&gt;
+&lt;p&gt;前面说到Hugo的主题很多，都可以在它的&lt;a href=&#34;https://themes.gohugo.io/&#34;&gt;官网&lt;/a&gt;上找到。
+我选的主题是&lt;a href=&#34;https://heysh.xyz/&#34;&gt;He Yeshuang&lt;/a&gt;分享的&lt;a href=&#34;https://themes.gohugo.io/themes/hugo-theme-tokiwa/&#34;&gt;Tokiwa&lt;/a&gt;。
+主题的设置也很简单，以Tokwa为例，首先把主题的源码clone到项目根目录下的&lt;code&gt;theme&lt;/code&gt;文件夹中&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#111&#34;&gt;cd&lt;/span&gt; my_blog
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git submodule add https://github.com/heyeshuang/hugo-theme-tokiwa.git themes/hugo-theme-tokiwa
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;然后，修改根目录下的&lt;code&gt;config.toml&lt;/code&gt;文件，在里面加上一句&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;theme = &amp;#34;hugo-theme-tokiwa&amp;#34;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;随后便会找到&lt;code&gt;theme/&lt;/code&gt;文件夹下同名的主题并应用。&lt;/p&gt;
+&lt;p&gt;或者，通常主题源码被clone下来后，会带有配置示例，一般会放在&lt;code&gt;theme/xxx/exampleSite&lt;/code&gt;文件夹下，把里面的文件复制到网站根目录下替换原有文件即可。&lt;/p&gt;
+&lt;p&gt;然后我们可以在根目录下执行&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;hugo server 
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;然后通过&lt;code&gt;http://localhost:1313/&lt;/code&gt;，来查看网站大概长什么样。&lt;/p&gt;
+&lt;h2 id=&#34;部署到github-pages&#34;&gt;部署到GitHub pages&lt;/h2&gt;
+&lt;p&gt;首先创建 &lt;code&gt;xxx.github.io&lt;/code&gt; 的repo，&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
