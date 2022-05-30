@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Deer Park</title>
-    <link>https://example.com/</link>
+    <link>https://deerdean.github.io/</link>
     <description>Recent content on Deer Park</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>cn</language>
     <lastBuildDate>Mon, 30 May 2022 08:51:20 +0800</lastBuildDate>
     
-	<atom:link href="https://example.com/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://deerdean.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>搭建Hugo博客</title>
-      <link>https://example.com/post/%E6%90%AD%E5%BB%BAhugo%E5%8D%9A%E5%AE%A2/</link>
+      <link>https://deerdean.github.io/post/%E6%90%AD%E5%BB%BAhugo%E5%8D%9A%E5%AE%A2/</link>
       <pubDate>Mon, 30 May 2022 08:51:20 +0800</pubDate>
       
-      <guid>https://example.com/post/%E6%90%AD%E5%BB%BAhugo%E5%8D%9A%E5%AE%A2/</guid>
+      <guid>https://deerdean.github.io/post/%E6%90%AD%E5%BB%BAhugo%E5%8D%9A%E5%AE%A2/</guid>
       <description>&lt;p&gt;觉得有必要搭建一下blog，记录一下自己的一些学习笔记。没有写网页的基础，又觉得租服务器和域名备案太麻烦了，所以选择了高校低成本的方法：&lt;strong&gt;github pages + 静态网站&lt;/strong&gt; 的方式。
 然后在&lt;a href=&#34;https://hexo.io/zh-cn/&#34;&gt;Hexo&lt;/a&gt;、&lt;a href=&#34;https://jekyllrb.com/&#34;&gt;Jekyll&lt;/a&gt;和&lt;a href=&#34;https://gohugo.io/&#34;&gt;Hugo&lt;/a&gt;中纠结了一番，虽然github pages自带Jekyll，但相比之下，Hugo的社区群体更大，也拥有更多的主题，因此就选择了使用Hugo来搭建。
 Hugo是用Golang写的，因此它生成网站的速度也更快一些。&lt;/p&gt;
@@ -46,19 +46,19 @@ Hugo是用Golang写的，因此它生成网站的速度也更快一些。&lt;/p&
     
     <item>
       <title></title>
-      <link>https://example.com/archives/</link>
+      <link>https://deerdean.github.io/archives/</link>
       <pubDate>Tue, 28 May 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/archives/</guid>
+      <guid>https://deerdean.github.io/archives/</guid>
       <description></description>
     </item>
     
     <item>
       <title>About</title>
-      <link>https://example.com/about/</link>
+      <link>https://deerdean.github.io/about/</link>
       <pubDate>Thu, 28 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/about/</guid>
+      <guid>https://deerdean.github.io/about/</guid>
       <description>&lt;p&gt;Written in Go, Hugo is an open source static site generator available under the &lt;a href=&#34;https://github.com/gohugoio/hugo/blob/master/LICENSE&#34;&gt;Apache Licence 2.0.&lt;/a&gt; Hugo supports TOML, YAML and JSON data file types, Markdown and HTML content files and uses shortcodes to add rich content. Other notable features are taxonomies, multilingual mode, image processing, custom output formats, HTML/CSS/JS minification and support for Sass SCSS workflows.&lt;/p&gt;
 &lt;p&gt;Hugo makes use of a variety of open source projects including:&lt;/p&gt;
 &lt;ul&gt;
