@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="cn">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	
+	<title>Deer Park  | 搭建 Hugo &#43; Github Pages 博客</title>
+	<meta name="viewport" content="width=device-width,minimum-scale=1">
+	<meta name="generator" content="Hugo 0.99.1" />
+	
+	
+	<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+	
+
+	
+	
+	<link href="/dist/app.css" rel="stylesheet">
+	
+
+	
+
+	
+	
+<link rel="shortcut icon" href="img/siteicon.jpeg" type="image/png" />
+
+	
+
+	
+	
+	
+	
+
+
+
+<link rel="stylesheet" href='https://deerdean.github.io/lib/katex.min.css' crossorigin="anonymous">
+
+
+<script defer src='https://deerdean.github.io/lib/katex.min.js' crossorigin="anonymous"></script>
+
+
+<script defer src='https://deerdean.github.io/lib/contrib/auto-render.min.js'
+crossorigin="anonymous"
+onload='renderMathInElement(document.body);'></script>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false}
+            ]
+        });
+    });
+</script>
+
+	
+	
+	
+	<script>
+		(function (u, c) {
+			var d = document,
+				t = 'script',
+				o = d.createElement(t),
+				s = d.getElementsByTagName(t)[0];
+			o.src = u;
+			if (c) {
+				o.addEventListener('load', function (e) {
+					c(e);
+				});
+			}
+			s.parentNode.insertBefore(o, s);
+		})('https:\/\/deerdean.github.io\/lib\/pangu.min.js', function () {
+			pangu.spacingPage();
+		});
+	</script>
+	
+	
+	
+	<style type="text/css" media="screen, print">
+		@font-face {
+			font-family: "FancyTitleFont";
+			font-style: normal;
+			font-display: swap;
+			src: url('https://deerdean.github.io/fonts/exampleFont.woff2') format('woff2'),
+				url('https://deerdean.github.io/fonts/exampleFont.woff') format('woff');
+		}
+		 
+		  
+		 
+		@font-face {
+			font-family: 'Noto Serif CJK SC';
+			font-style: normal;
+			font-weight: 300;
+			font-display: swap;
+			src: local('Noto Serif CJK SC Light'), local('NotoSerifCJK-Light'),
+				url('https://deerdean.github.io/fonts/noto-serif-sc-v7-latin_chinese-simplified-300.woff2') format('woff2'),
+				 
+				url('https://deerdean.github.io/fonts/noto-serif-sc-v7-latin_chinese-simplified-300.woff') format('woff');
+			 
+		}
+
+		 
+		@font-face {
+			font-family: 'Noto Serif CJK SC';
+			font-style: normal;
+			font-weight: 400;
+			font-display: swap;
+			src: local('Noto Serif CJK SC'), local('NotoSerifCJK-Regular'),
+				url('https://deerdean.github.io/fonts/noto-serif-sc-v7-latin_chinese-simplified-regular.woff2') format('woff2'),
+				 
+				url('https://deerdean.github.io/fonts/noto-serif-sc-v7-latin_chinese-simplified-regular.woff') format('woff');
+			 
+		}
+
+		 
+		@font-face {
+			font-family: 'Noto Serif CJK SC';
+			font-style: normal;
+			font-weight: 500;
+			font-display: swap;
+			src: local('Noto Serif CJK SC Medium'), local('NotoSerifCJK-Medium'),
+				url('https://deerdean.github.io/fonts/noto-serif-sc-v7-latin_chinese-simplified-500.woff2') format('woff2'),
+				 
+				url('https://deerdean.github.io/fonts/noto-serif-sc-v7-latin_chinese-simplified-500.woff') format('woff');
+			 
+		}
+	</style>
+	
+</head>
+
+<body class="bg-gray-100 text-gray-700 font-sans">
+	<div class="p-6 sm:p-10 md:p-16 flex flex-wrap">
+		<header class="w-full md:w-2/5 xl:w-1/2 md:pr-12 lg:pr-20 xl:pr-24 order-1 md:order-1 max-w-2xl">
+			<div
+				class="z-50 bg-gray-100 bg-opacity-75 bg-opacity-custom lg:min-w-0.7 max-w-xl md:float-right md:text-right leading-loose tracking-tight md:sticky md:top-0 pt-2">
+				
+<div>
+	<h2>
+		<a href="https://deerdean.github.io/" title="Deer Park" class="heading font-cursive icon">Deer Park</a>
+	</h2>
+</div>
+<h1 class="pt-2">搭建 Hugo &#43; Github Pages 博客</h1>
+
+<h3 class="text-java-700 font-normal leading-relaxed pt-2">记录一下如何构建Hugo博客</h3>
+
+<div class="flex flex-wrap justify-end pt-2 "><div class="md:flex-grow-0 font-light">
+	
+	
+	
+	
+	<a class="post-taxonomy-category text-medium-red-violet-600 hover:text-medium-red-violet-400"
+		href='/categories/%E8%AE%B0%E5%BD%95'>记录</a>
+	
+	
+	
+
+	
+	&nbsp;&nbsp;
+	
+
+	
+	
+	
+	
+	<a class="post-taxonomy-tag text-eucalyptus-500"
+		href='/tags/blog'>Blog</a>&nbsp;&#47;
+	
+	<a class="post-taxonomy-tag text-eucalyptus-500"
+		href='/tags/hugo'>Hugo</a>
+	
+	
+	
+</div><time class="text-eucalyptus-500 md:text-right md:flex-grow font-light pl-4"
+		datetime="2022-05-30T08:51:20&#43;08:00">2022-5-30</time>
+</div>
+
+<details class="toc" open>
+<summary>
+    <hr />
+</summary>
+<div class="inline toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#安装hugo">安装Hugo</a></li>
+    <li><a href="#快速搭建">快速搭建</a></li>
+    <li><a href="#选择主题">选择主题</a></li>
+    <li><a href="#部署到github-pages">部署到GitHub Pages</a></li>
+    <li><a href="#发布文章">发布文章</a></li>
+    <li><a href="#添加评论模块">添加评论模块</a></li>
+  </ul>
+</nav>
+</div>
+</details>
+
+<hr />
+
+
+			</div>
+		</header>
+		<main role="main" class="w-full md:w-3/5 xl:w-1/2 max-w-3xl order-2 md:order-2 min-h-70vh pt-2 pb-4">
+			
+
+<article>
+	<section class="mx-auto content">
+		<div class="c-rich-text"><p>觉得有必要搭建一下blog，记录一下自己的一些学习笔记。没有写网页的基础，又觉得租服务器和域名备案太麻烦了，所以选择了高效低成本的方法：<strong>github pages + 静态网站</strong> 的方式。
+然后在<a href="https://hexo.io/zh-cn/">Hexo</a>、<a href="https://jekyllrb.com/">Jekyll</a>和<a href="https://gohugo.io/">Hugo</a>中纠结了一番，虽然github pages自带Jekyll，但相比之下，Hugo的社区群体更大，也拥有更多的主题，因此就选择了使用Hugo来搭建。
+Hugo是用Golang写的，因此它生成网站的速度也更快一些。</p>
+<h2 id="安装hugo">安装Hugo</h2>
+<p>这部分可以直接参考<a href="https://gohugo.io/getting-started/installing/">Hugo官网的Doc</a>。</p>
+<h2 id="快速搭建">快速搭建</h2>
+<p>安装完Hugo后，可以通过一下命令快速创建网站项目</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>hugo new site my_blog
+</span></span></code></pre></div><p>然后就会在当前路径下生成名为 <strong>my_blog/</strong> 的文件夹以及内部基础的文件。接下来就需要为你的网站设置一个主题。</p>
+<h2 id="选择主题">选择主题</h2>
+<p>前面说到Hugo的主题很多，都可以在它的<a href="https://themes.gohugo.io/">官网</a>上找到。
+我选的主题是<a href="https://heysh.xyz/">He Yeshuang</a>分享的<a href="https://themes.gohugo.io/themes/hugo-theme-tokiwa/">Tokiwa</a>。
+主题的设置也很简单，以Tokwa为例，首先把主题的源码clone到项目根目录下的 <strong>theme/</strong> 文件夹中</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#111">cd</span> my_blog
+</span></span><span style="display:flex;"><span>git submodule add https://github.com/heyeshuang/hugo-theme-tokiwa.git themes/hugo-theme-tokiwa
+</span></span></code></pre></div><p>然后，修改根目录下的 <strong>config.toml</strong> 文件，在里面加上一句</p>
+<pre tabindex="0"><code>theme = &#34;hugo-theme-tokiwa&#34;
+</code></pre><p>随后便会找到**theme/**文件夹下同名的主题并应用。</p>
+<p>或者，通常主题源码被clone下来后，会带有配置示例，一般会放在 <strong>theme/xxx/exampleSite/</strong> 文件夹下，把里面的文件复制到网站根目录下替换原有文件即可。</p>
+<p>然后我们可以在根目录下执行</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>hugo server 
+</span></span></code></pre></div><p>然后通过 <strong>http://localhost:1313/</strong> ，来查看网站大概长什么样。</p>
+<h2 id="部署到github-pages">部署到GitHub Pages</h2>
+<p>首先创建 <strong>xxx.github.io</strong> 的repo（参考<a href="https://pages.github.com/">官网</a>）。
+随后在 <strong>config.toml</strong> 文件中添加</p>
+<pre tabindex="0"><code>baseURL = &#34;https://xxxxx.github.io/&#34;
+</code></pre><p>来制定网站域名，执行</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>hugo
+</span></span></code></pre></div><p>生成静态网站资源，然根目录下会生成新的文件夹 <strong>public/</strong> ，我们将这个文件夹和我们的 pages repo 链接</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#111">cd</span> public
+</span></span><span style="display:flex;"><span>git init
+</span></span><span style="display:flex;"><span>git add .
+</span></span><span style="display:flex;"><span>git commit -m<span style="color:#d88200">&#34;blog init&#34;</span>
+</span></span><span style="display:flex;"><span>git remote add origin https://github.com/xxx/xxx.github.io.git
+</span></span><span style="display:flex;"><span>git branch -M main
+</span></span><span style="display:flex;"><span>git push origin main
+</span></span></code></pre></div><p>Github pages生效需要一些时间，等一会就可以通过 <strong><a href="https://xxx.github.io">https://xxx.github.io</a></strong> 来访问自己的博客了。</p>
+<h2 id="发布文章">发布文章</h2>
+<p>通过以下名来生成新的文件</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>hugo new post/20220530BuildBlog.md
+</span></span></code></pre></div><p>并通过修改markdown文件的头部内容来为文章添加tags和分类，以及其他的一些属性</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span>title: &#34;搭建 Hugo + Github Pages 博客&#34;
+</span></span><span style="display:flex;"><span>date: 2022-05-30T08:51:20+08:00
+</span></span><span style="display:flex;"><span>draft: true
+</span></span><span style="display:flex;"><span>description: &#34;记录一下如何构建Hugo博客&#34;
+</span></span><span style="display:flex;"><span>tags: [&#34;Blog&#34;, &#34;Hugo&#34;]
+</span></span><span style="display:flex;"><span>categories: [&#34;记录&#34;]
+</span></span><span style="display:flex;"><span>toc: true
+</span></span><span style="display:flex;"><span>---
+</span></span></code></pre></div><p>文章完成后就可以通过 <strong>hugo</strong> 命令来生成网站，再把 <strong>public/</strong> 更新到GitHub上。（记得把文章的draft属性设置为false)</p>
+<h2 id="添加评论模块">添加评论模块</h2>
+<p>Tokiwa用的是Hugo内置的<a href="https://disqus.com/">Disqus</a>模块，但在国内感觉这个用起来不太方便，
+就找了个平替，基于Github issue search API的<a href="utteranc.es">utterances</a>，可有通过Github账号来进行评论
+配置起来也特别方便，安装<a href="https://github.com/apps/utterances">utterances github app</a>，然后配置可以直接选择我们 <strong>xxxx.github.io</strong> 的repo，
+这样的话之后关于我们文章的评论都会以issue的形式存储在这个仓库中。</p>
+<p>然后就是要把这个模块添加到我们的site中，首先我们要找到我们希望放置评论模块的位置，我们文章的页面是通过模版生成的，所以需要修改统一的模板，
+还是以Tokiwa为例，Tokiwa评论的模板位置放在 <strong>themes/hugo-theme-tokiwa/layouts/partials/page-footer.html</strong> ，
+可以看到最下面有</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#111">&lt;</span><span style="color:#f92672">div</span> <span style="color:#75af00">class</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;pb-2&#34;</span><span style="color:#111">&gt;</span>
+</span></span><span style="display:flex;"><span>    {{ template &#34;_internal/disqus.html&#34; .  }}
+</span></span><span style="display:flex;"><span><span style="color:#111">&lt;/</span><span style="color:#f92672">div</span><span style="color:#111">&gt;</span>
+</span></span></code></pre></div><p>这是使用了Hugo的内置模板，我们需要做的就是替换掉这部分，首先我们创建一个新的文件 <strong>themes/hugo-theme-tokiwa/layouts/partials/utterances.html</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#111">&lt;</span><span style="color:#f92672">script</span> <span style="color:#75af00">src</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;https://utteranc.es/client.js&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75af00">repo</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;xxx/xxx.github.io&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75af00">issue-term</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;pathname&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75af00">theme</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;github-light&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75af00">crossorigin</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;anonymous&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75af00">async</span><span style="color:#111">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">&lt;/</span><span style="color:#f92672">script</span><span style="color:#111">&gt;</span>
+</span></span></code></pre></div><p>这部分代码utterances主页上有根据不同需求生成，记得替换其中的repo即刻，然后我们把刚刚footer中的模板替换掉就可以了。</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#111">&lt;</span><span style="color:#f92672">div</span> <span style="color:#75af00">class</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;pb-2&#34;</span><span style="color:#111">&gt;</span>
+</span></span><span style="display:flex;"><span>    {{ partial &#34;utterances.html&#34; . }}
+</span></span><span style="display:flex;"><span><span style="color:#111">&lt;/</span><span style="color:#f92672">div</span><span style="color:#111">&gt;</span>
+</span></span></code></pre></div><p>其他主题也是差不多，效果就像下面一样了。</p>
+</div>
+	</section>
+
+
+</article>
+
+		</main>
+		<div class="w-full h-0 flex-none order-3"></div>
+		<aside role="contentinfo"
+			class="w-full md:w-2/5 xl:w-1/2 md:pr-12 lg:pr-20 xl:pr-24 order-4 md:order-3 md:sticky md:bottom-0 self-end max-w-2xl">
+			<div class="md:float-right md:text-right leading-loose tracking-tight md:mb-2">
+				
+	<div class="md:max-w-xs  flex flex-col md:items-end">
+	<ul class="font-serif flex-grow-0 flex justify-between flex-wrap md:flex-col">
+	
+	
+	<li class="px-1 md:px-0">
+		<a href="/post/" title="Posts page" 
+			class="font-medium text-medium-red-violet-600 hover:text-medium-red-violet-400" >
+			Posts
+		</a>
+	</li>
+	
+	<li class="px-1 md:px-0">
+		<a href="/categories/" title="Categories page" >
+			Categories
+		</a>
+	</li>
+	
+	<li class="px-1 md:px-0">
+		<a href="/tags/" title="Tags page" >
+			Tags
+		</a>
+	</li>
+	
+	<li class="px-1 md:px-0">
+		<a href="/about/" title="About page" >
+			About
+		</a>
+	</li>
+	
+	
+	
+	
+	<div id="fastSearch" class="m-0">
+		<input id="searchInput" type="text" size=10 
+			class="bg-gray-100 focus:outline-none border-b border-gray-100 focus:border-eucalyptus-300 md:text-right
+			placeholder-java-500 min-w-0 max-w-xxxs"
+			placeholder="search" />
+		<ul id="searchResults" class="bg-gray-200 px-2 divide-y divide-gray-400">
+		</ul>
+	</div>
+	
+</ul>
+	
+
+<div class="flex flex-wrap-reverse md:justify-end content-end md:content-start justify-start items-start   max-h-16">
+	
+	<a href='https://github.com/DeerDean' target="_blank" class="github icon pl-1 text-eucalyptus-400 hover:text-java-400" title="github link" rel="noopener"
+		aria-label="follow on github——Opens in a new window">
+		
+		<div class="fill-current h-8 w-8">
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <g>
+        <path fill="none" d="M0 0h24v24H0z"/>
+        <path fill-rule="nonzero" d="M5.883 18.653c-.3-.2-.558-.455-.86-.816a50.32 50.32 0 0 1-.466-.579c-.463-.575-.755-.84-1.057-.949a1 1 0 0 1 .676-1.883c.752.27 1.261.735 1.947 1.588-.094-.117.34.427.433.539.19.227.33.365.44.438.204.137.587.196 1.15.14.023-.382.094-.753.202-1.095C5.38 15.31 3.7 13.396 3.7 9.64c0-1.24.37-2.356 1.058-3.292-.218-.894-.185-1.975.302-3.192a1 1 0 0 1 .63-.582c.081-.024.127-.035.208-.047.803-.123 1.937.17 3.415 1.096A11.731 11.731 0 0 1 12 3.315c.912 0 1.818.104 2.684.308 1.477-.933 2.613-1.226 3.422-1.096.085.013.157.03.218.05a1 1 0 0 1 .616.58c.487 1.216.52 2.297.302 3.19.691.936 1.058 2.045 1.058 3.293 0 3.757-1.674 5.665-4.642 6.392.125.415.19.879.19 1.38a300.492 300.492 0 0 1-.012 2.716 1 1 0 0 1-.019 1.958c-1.139.228-1.983-.532-1.983-1.525l.002-.446.005-.705c.005-.708.007-1.338.007-1.998 0-.697-.183-1.152-.425-1.36-.661-.57-.326-1.655.54-1.752 2.967-.333 4.337-1.482 4.337-4.66 0-.955-.312-1.744-.913-2.404a1 1 0 0 1-.19-1.045c.166-.414.237-.957.096-1.614l-.01.003c-.491.139-1.11.44-1.858.949a1 1 0 0 1-.833.135A9.626 9.626 0 0 0 12 5.315c-.89 0-1.772.119-2.592.35a1 1 0 0 1-.83-.134c-.752-.507-1.374-.807-1.868-.947-.144.653-.073 1.194.092 1.607a1 1 0 0 1-.189 1.045C6.016 7.89 5.7 8.694 5.7 9.64c0 3.172 1.371 4.328 4.322 4.66.865.097 1.201 1.177.544 1.748-.192.168-.429.732-.429 1.364v3.15c0 .986-.835 1.725-1.96 1.528a1 1 0 0 1-.04-1.962v-.99c-.91.061-1.662-.088-2.254-.485z"/>
+    </g>
+</svg>
+
+		</div>
+	</a>
+	
+	<a href='https://www.zhihu.com/people/ldblink/posts' target="_blank" class="zhihu icon pl-1 text-eucalyptus-400 hover:text-java-400" title="zhihu link" rel="noopener"
+		aria-label="follow on zhihu——Opens in a new window">
+		
+		<div class="fill-current h-8 w-8">
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <g>
+        <path fill="none" d="M0 0h24v24H0z"/>
+        <path d="M12.344 17.963l-1.688 1.074-2.131-3.35c-.44 1.402-1.172 2.665-2.139 3.825-.402.483-.82.918-1.301 1.375-.155.147-.775.717-.878.82l-1.414-1.414c.139-.139.787-.735.915-.856.43-.408.795-.79 1.142-1.206 1.266-1.518 2.03-3.21 2.137-5.231H3v-2h4V7h-.868c-.689 1.266-1.558 2.222-2.618 2.857L2.486 8.143c1.395-.838 2.425-2.604 3.038-5.36l1.952.434c-.14.633-.303 1.227-.489 1.783H11.5v2H9v4h2.5v2H9.185l3.159 4.963zm3.838-.07L17.298 17H19V7h-4v10h.736l.446.893zM13 5h8v14h-3l-2.5 2-1-2H13V5z"/>
+    </g>
+</svg>
+
+		</div>
+	</a>
+	
+</div>
+	<div class="text-sm text-gray-500 leading-tight a-gray">
+		© DeerDean
+		<br />
+		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 1343 words in this page.
+	</div>
+</div>
+
+			</div>
+		</aside>
+		<footer class="w-full md:w-3/5 xl:w-1/2 order-3 max-w-3xl md:order-4 pt-2">
+			
+<hr class="double-line" />
+<div class="flex flex-wrap justify-between pb-2 leading-loose font-serif">
+    
+    <a class="flex-grow-0" href="/archives/">
+        <svg class="fill-current inline-block h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
+            height="24">
+            <path fill="none" d="M0 0h24v24H0z" />
+            <path d="M7.828 11H20v2H7.828l5.364 5.364-1.414 1.414L4 12l7.778-7.778 1.414 1.414z" /></svg>
+        
+    </a>
+    
+    
+    <a class="flex-grow-0" href="/about/">
+        About
+        <svg class="fill-current inline-block h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
+            height="24">
+            <path fill="none" d="M0 0h24v24H0z" />
+            <path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z" /></svg></a>
+    
+</div>
+<div >
+
+
+
+</div>
+<hr />
+<div class="pb-2">
+    <script src="https://utteranc.es/client.js"
+        repo="DeerDean/deerdean.github.io"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+
+</div>
+<hr />
+
+		</footer>
+		
+
+<script src="/dist/app.js"></script>
+
+
+<script src="/lib/fuse.min.js"></script> 
+<script src="/lib/fastsearch.js"></script>
+
+	</div>
+</body>
+
+</html>

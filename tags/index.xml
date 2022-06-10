@@ -7,10 +7,28 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>cn</language>
     <copyright>© DeerDean</copyright>
-    <lastBuildDate>Mon, 30 May 2022 08:51:20 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 09 Jun 2022 17:58:18 +0800</lastBuildDate>
     
 	<atom:link href="https://deerdean.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Runtime</title>
+      <link>https://deerdean.github.io/tags/runtime/</link>
+      <pubDate>Thu, 09 Jun 2022 17:58:18 +0800</pubDate>
+      
+      <guid>https://deerdean.github.io/tags/runtime/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Substrate</title>
+      <link>https://deerdean.github.io/tags/substrate/</link>
+      <pubDate>Thu, 09 Jun 2022 17:58:18 +0800</pubDate>
+      
+      <guid>https://deerdean.github.io/tags/substrate/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Blog</title>

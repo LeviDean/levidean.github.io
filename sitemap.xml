@@ -2,28 +2,40 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://deerdean.github.io/</loc>
+    <lastmod>2022-06-09T17:58:18+08:00</lastmod>
+  </url><url>
+    <loc>https://deerdean.github.io/categories/blockchain/</loc>
+    <lastmod>2022-06-09T17:58:18+08:00</lastmod>
+  </url><url>
+    <loc>https://deerdean.github.io/categories/</loc>
+    <lastmod>2022-06-09T17:58:18+08:00</lastmod>
+  </url><url>
+    <loc>https://deerdean.github.io/post/</loc>
+    <lastmod>2022-06-09T17:58:18+08:00</lastmod>
+  </url><url>
+    <loc>https://deerdean.github.io/tags/runtime/</loc>
+    <lastmod>2022-06-09T17:58:18+08:00</lastmod>
+  </url><url>
+    <loc>https://deerdean.github.io/tags/substrate/</loc>
+    <lastmod>2022-06-09T17:58:18+08:00</lastmod>
+  </url><url>
+    <loc>https://deerdean.github.io/tags/</loc>
+    <lastmod>2022-06-09T17:58:18+08:00</lastmod>
+  </url><url>
+    <loc>https://deerdean.github.io/post/20220609substrate-runtime/</loc>
+    <lastmod>2022-06-09T17:58:18+08:00</lastmod>
+  </url><url>
     <loc>https://deerdean.github.io/about/</loc>
     <lastmod>2022-05-30T12:16:10+08:00</lastmod>
   </url><url>
-    <loc>https://deerdean.github.io/</loc>
-    <lastmod>2022-05-30T08:51:20+08:00</lastmod>
-  </url><url>
     <loc>https://deerdean.github.io/tags/blog/</loc>
-    <lastmod>2022-05-30T08:51:20+08:00</lastmod>
-  </url><url>
-    <loc>https://deerdean.github.io/categories/</loc>
     <lastmod>2022-05-30T08:51:20+08:00</lastmod>
   </url><url>
     <loc>https://deerdean.github.io/tags/hugo/</loc>
     <lastmod>2022-05-30T08:51:20+08:00</lastmod>
   </url><url>
-    <loc>https://deerdean.github.io/post/</loc>
-    <lastmod>2022-05-30T08:51:20+08:00</lastmod>
-  </url><url>
-    <loc>https://deerdean.github.io/tags/</loc>
-    <lastmod>2022-05-30T08:51:20+08:00</lastmod>
-  </url><url>
-    <loc>https://deerdean.github.io/post/20220530buildblog/</loc>
+    <loc>https://deerdean.github.io/post/20220530build-blog/</loc>
     <lastmod>2022-05-30T08:51:20+08:00</lastmod>
   </url><url>
     <loc>https://deerdean.github.io/categories/%E8%AE%B0%E5%BD%95/</loc>
