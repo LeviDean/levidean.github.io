@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="cn">
+
+<head>
+	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	<link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	
+	<title>Deer Park  | Rust中的Eq和PartialEq</title>
+	<meta name="viewport" content="width=device-width,minimum-scale=1">
+	<meta name="generator" content="Hugo 0.99.1" />
+	
+	
+	<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+	
+
+	
+	
+	<link href="/dist/app.css" rel="stylesheet">
+	
+
+	
+
+	
+	
+<link rel="shortcut icon" href="img/siteicon.jpeg" type="image/png" />
+
+	
+
+	
+	
+	
+	
+
+
+
+<link rel="stylesheet" href='https://deerdean.github.io/lib/katex.min.css' crossorigin="anonymous">
+
+
+<script defer src='https://deerdean.github.io/lib/katex.min.js' crossorigin="anonymous"></script>
+
+
+<script defer src='https://deerdean.github.io/lib/contrib/auto-render.min.js'
+crossorigin="anonymous"
+onload='renderMathInElement(document.body);'></script>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false}
+            ]
+        });
+    });
+</script>
+
+	
+	
+	
+	<script>
+		(function (u, c) {
+			var d = document,
+				t = 'script',
+				o = d.createElement(t),
+				s = d.getElementsByTagName(t)[0];
+			o.src = u;
+			if (c) {
+				o.addEventListener('load', function (e) {
+					c(e);
+				});
+			}
+			s.parentNode.insertBefore(o, s);
+		})('https:\/\/deerdean.github.io\/lib\/pangu.min.js', function () {
+			pangu.spacingPage();
+		});
+	</script>
+	
+	
+	
+	<style type="text/css" media="screen, print">
+		@font-face {
+			font-family: "FancyTitleFont";
+			font-style: normal;
+			font-display: swap;
+			src: url('https://deerdean.github.io/fonts/exampleFont.woff2') format('woff2'),
+				url('https://deerdean.github.io/fonts/exampleFont.woff') format('woff');
+		}
+		 
+		  
+		 
+		@font-face {
+			font-family: 'Noto Serif CJK SC';
+			font-style: normal;
+			font-weight: 300;
+			font-display: swap;
+			src: local('Noto Serif CJK SC Light'), local('NotoSerifCJK-Light'),
+				url('https://deerdean.github.io/fonts/noto-serif-sc-v7-latin_chinese-simplified-300.woff2') format('woff2'),
+				 
+				url('https://deerdean.github.io/fonts/noto-serif-sc-v7-latin_chinese-simplified-300.woff') format('woff');
+			 
+		}
+
+		 
+		@font-face {
+			font-family: 'Noto Serif CJK SC';
+			font-style: normal;
+			font-weight: 400;
+			font-display: swap;
+			src: local('Noto Serif CJK SC'), local('NotoSerifCJK-Regular'),
+				url('https://deerdean.github.io/fonts/noto-serif-sc-v7-latin_chinese-simplified-regular.woff2') format('woff2'),
+				 
+				url('https://deerdean.github.io/fonts/noto-serif-sc-v7-latin_chinese-simplified-regular.woff') format('woff');
+			 
+		}
+
+		 
+		@font-face {
+			font-family: 'Noto Serif CJK SC';
+			font-style: normal;
+			font-weight: 500;
+			font-display: swap;
+			src: local('Noto Serif CJK SC Medium'), local('NotoSerifCJK-Medium'),
+				url('https://deerdean.github.io/fonts/noto-serif-sc-v7-latin_chinese-simplified-500.woff2') format('woff2'),
+				 
+				url('https://deerdean.github.io/fonts/noto-serif-sc-v7-latin_chinese-simplified-500.woff') format('woff');
+			 
+		}
+	</style>
+	
+</head>
+
+<body class="bg-gray-100 text-gray-700 font-sans">
+	<div class="p-6 sm:p-10 md:p-16 flex flex-wrap">
+		<header class="w-full md:w-2/5 xl:w-1/2 md:pr-12 lg:pr-20 xl:pr-24 order-1 md:order-1 max-w-2xl">
+			<div
+				class="z-50 bg-gray-100 bg-opacity-75 bg-opacity-custom lg:min-w-0.7 max-w-xl md:float-right md:text-right leading-loose tracking-tight md:sticky md:top-0 pt-2">
+				
+<div>
+	<h2>
+		<a href="https://deerdean.github.io/" title="Deer Park" class="heading font-cursive icon">Deer Park</a>
+	</h2>
+</div>
+<h1 class="pt-2">Rust中的Eq和PartialEq</h1>
+
+<div class="flex flex-wrap justify-end pt-2 "><div class="md:flex-grow-0 font-light">
+	
+	
+	
+	
+	<a class="post-taxonomy-category text-medium-red-violet-600 hover:text-medium-red-violet-400"
+		href='/categories/rust'>Rust</a>
+	
+	
+	
+
+	
+	&nbsp;&nbsp;
+	
+
+	
+	
+	
+	
+	<a class="post-taxonomy-tag text-eucalyptus-500"
+		href='/tags/macro'>Macro</a>&nbsp;&#47;
+	
+	<a class="post-taxonomy-tag text-eucalyptus-500"
+		href='/tags/eq'>Eq</a>&nbsp;&#47;
+	
+	<a class="post-taxonomy-tag text-eucalyptus-500"
+		href='/tags/partialeq'>PartialEq</a>
+	
+	
+	
+</div><time class="text-eucalyptus-500 md:text-right md:flex-grow font-light pl-4"
+		datetime="2022-07-12T23:12:12&#43;08:00">2022-7-12</time>
+</div>
+
+<details class="toc" open>
+<summary>
+    <hr />
+</summary>
+<div class="inline toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#partialeq">PartialEq</a></li>
+    <li><a href="#eq">Eq</a></li>
+  </ul>
+</nav>
+</div>
+</details>
+
+<hr />
+
+
+			</div>
+		</header>
+		<main role="main" class="w-full md:w-3/5 xl:w-1/2 max-w-3xl order-2 md:order-2 min-h-70vh pt-2 pb-4">
+			
+
+<article>
+	<section class="mx-auto content">
+		<div class="c-rich-text"><h2 id="partialeq">PartialEq</h2>
+<p>我们先定义一个 <code>User</code> struct：</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#00a8c8">struct</span> <span style="color:#75af00">User</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">id</span>: <span style="color:#111">String</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">age</span>: <span style="color:#00a8c8">u32</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">name</span>: <span style="color:#111">String</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">}</span>
+</span></span></code></pre></div><p>那么当我们想看两个 user 是否是同一个人时：</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#00a8c8">let</span> <span style="color:#111">user_a</span> <span style="color:#f92672">=</span> <span style="color:#111">User</span> <span style="color:#111">{</span><span style="color:#111">id</span>: <span style="color:#d88200">&#34;12345&#34;</span><span style="color:#111">.</span><span style="color:#111">to_string</span><span style="color:#111">(),</span> <span style="color:#111">age</span>: <span style="color:#ae81ff">10</span><span style="color:#111">,</span> <span style="color:#111">name</span>: <span style="color:#d88200">&#34;Alice&#34;</span><span style="color:#111">.</span><span style="color:#111">to_string</span><span style="color:#111">()};</span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">let</span> <span style="color:#111">user_b</span> <span style="color:#f92672">=</span> <span style="color:#111">User</span> <span style="color:#111">{</span><span style="color:#111">id</span>: <span style="color:#d88200">&#34;12345&#34;</span><span style="color:#111">.</span><span style="color:#111">to_string</span><span style="color:#111">(),</span> <span style="color:#111">age</span>: <span style="color:#ae81ff">10</span><span style="color:#111">,</span> <span style="color:#111">name</span>: <span style="color:#d88200">&#34;Alice&#34;</span><span style="color:#111">.</span><span style="color:#111">to_string</span><span style="color:#111">()};</span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">if</span> <span style="color:#111">user_a</span> <span style="color:#f92672">==</span> <span style="color:#111">user_b</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">println!</span><span style="color:#111">(</span><span style="color:#d88200">&#34;Is the same person.&#34;</span><span style="color:#111">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">}</span>
+</span></span></code></pre></div><p>显而易见，直接用 == 编译器一定会报错。编译器提醒我们 <code>User</code> 缺少 <code>PartialEq&lt;_&gt;</code> 的实现, 可以通过添加派生宏 <code>#[derive(PartialEq)]</code> 来结局这个问题：</p>
+<pre tabindex="0"><code>  --&gt; src/main.rs:11:15
+   |
+11 |     if user_a == user_b {
+   |        ------ ^^ ------ User
+   |        |
+   |        User
+   |
+note: an implementation of `PartialEq&lt;_&gt;` might be missing for `User`
+  --&gt; src/main.rs:2:1
+   |
+2  | struct User {
+   | ^^^^^^^^^^^ must implement `PartialEq&lt;_&gt;`
+help: consider annotating `User` with `#[derive(PartialEq)]`
+   |
+2  | #[derive(PartialEq)]
+   |
+</code></pre><p>然后通过 <code>cargo expand</code> 可以看到派生宏为 <code>User</code> 实现了两个 trait：</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#00a8c8">impl</span> ::<span style="color:#111">core</span>::<span style="color:#111">marker</span>::<span style="color:#111">StructuralPartialEq</span> <span style="color:#00a8c8">for</span> <span style="color:#111">User</span> <span style="color:#111">{}</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#[automatically_derived]</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#[allow(unused_qualifications)]</span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">impl</span> ::<span style="color:#111">core</span>::<span style="color:#111">cmp</span>::<span style="color:#111">PartialEq</span> <span style="color:#00a8c8">for</span> <span style="color:#111">User</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">#[inline]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">fn</span> <span style="color:#75af00">eq</span><span style="color:#111">(</span><span style="color:#f92672">&amp;</span><span style="color:#111">self</span><span style="color:#111">,</span> <span style="color:#111">other</span>: <span style="color:#00a8c8">&amp;</span><span style="color:#75af00">User</span><span style="color:#111">)</span> -&gt; <span style="color:#00a8c8">bool</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">match</span> <span style="color:#f92672">*</span><span style="color:#111">other</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#111">User</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#111">id</span>: <span style="color:#75af00">ref</span> <span style="color:#111">__self_1_0</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#111">age</span>: <span style="color:#75af00">ref</span> <span style="color:#111">__self_1_1</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#111">name</span>: <span style="color:#75af00">ref</span> <span style="color:#111">__self_1_2</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#111">}</span> <span style="color:#f92672">=&gt;</span> <span style="color:#00a8c8">match</span> <span style="color:#f92672">*</span><span style="color:#111">self</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#111">User</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#111">id</span>: <span style="color:#75af00">ref</span> <span style="color:#111">__self_0_0</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#111">age</span>: <span style="color:#75af00">ref</span> <span style="color:#111">__self_0_1</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#111">name</span>: <span style="color:#75af00">ref</span> <span style="color:#111">__self_0_2</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#111">}</span> <span style="color:#f92672">=&gt;</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#111">(</span><span style="color:#f92672">*</span><span style="color:#111">__self_0_0</span><span style="color:#111">)</span> <span style="color:#f92672">==</span> <span style="color:#111">(</span><span style="color:#f92672">*</span><span style="color:#111">__self_1_0</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#f92672">&amp;&amp;</span> <span style="color:#111">(</span><span style="color:#f92672">*</span><span style="color:#111">__self_0_1</span><span style="color:#111">)</span> <span style="color:#f92672">==</span> <span style="color:#111">(</span><span style="color:#f92672">*</span><span style="color:#111">__self_1_1</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#f92672">&amp;&amp;</span> <span style="color:#111">(</span><span style="color:#f92672">*</span><span style="color:#111">__self_0_2</span><span style="color:#111">)</span> <span style="color:#f92672">==</span> <span style="color:#111">(</span><span style="color:#f92672">*</span><span style="color:#111">__self_1_2</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#111">}</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#111">},</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">#[inline]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">fn</span> <span style="color:#75af00">ne</span><span style="color:#111">(</span><span style="color:#f92672">&amp;</span><span style="color:#111">self</span><span style="color:#111">,</span> <span style="color:#111">other</span>: <span style="color:#00a8c8">&amp;</span><span style="color:#75af00">User</span><span style="color:#111">)</span> -&gt; <span style="color:#00a8c8">bool</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">match</span> <span style="color:#f92672">*</span><span style="color:#111">other</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#111">User</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#111">id</span>: <span style="color:#75af00">ref</span> <span style="color:#111">__self_1_0</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#111">age</span>: <span style="color:#75af00">ref</span> <span style="color:#111">__self_1_1</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#111">name</span>: <span style="color:#75af00">ref</span> <span style="color:#111">__self_1_2</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#111">}</span> <span style="color:#f92672">=&gt;</span> <span style="color:#00a8c8">match</span> <span style="color:#f92672">*</span><span style="color:#111">self</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#111">User</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#111">id</span>: <span style="color:#75af00">ref</span> <span style="color:#111">__self_0_0</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#111">age</span>: <span style="color:#75af00">ref</span> <span style="color:#111">__self_0_1</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#111">name</span>: <span style="color:#75af00">ref</span> <span style="color:#111">__self_0_2</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#111">}</span> <span style="color:#f92672">=&gt;</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#111">(</span><span style="color:#f92672">*</span><span style="color:#111">__self_0_0</span><span style="color:#111">)</span> <span style="color:#f92672">!=</span> <span style="color:#111">(</span><span style="color:#f92672">*</span><span style="color:#111">__self_1_0</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#f92672">||</span> <span style="color:#111">(</span><span style="color:#f92672">*</span><span style="color:#111">__self_0_1</span><span style="color:#111">)</span> <span style="color:#f92672">!=</span> <span style="color:#111">(</span><span style="color:#f92672">*</span><span style="color:#111">__self_1_1</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#f92672">||</span> <span style="color:#111">(</span><span style="color:#f92672">*</span><span style="color:#111">__self_0_2</span><span style="color:#111">)</span> <span style="color:#f92672">!=</span> <span style="color:#111">(</span><span style="color:#f92672">*</span><span style="color:#111">__self_1_2</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#111">}</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#111">},</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">}</span>
+</span></span></code></pre></div><p>其中 <code>::core::marker::StructuralPartialEq</code> 的代码块为空，任何派生 <code>PartialEq</code> 的类型都会自动实现这个 trait。</p>
+<p>另一个就是关键的 <code>PartialEq</code> 了。可以看到主要是实现了 <code>eq(...)</code> 和 <code>ne(...)</code> 两个函数，函数内部执行的是模式匹配，当两者内部的值来返回 true 或者 false，也就是重载了 <code>==</code> 和 <code>!=</code>。</p>
+<p>所以如果 struct 要实现 <code>PartialEq</code> 那么它的成员类型也必须都要实现 <code>PartialEq</code>。</p>
+<h2 id="eq">Eq</h2>
+<p>Rust 中还有一个 trait <code>Eq</code>, 也同样可以通过派生宏 <code>#[derive(Eq)]</code> 实现，代码展开后为：</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#00a8c8">impl</span> ::<span style="color:#111">core</span>::<span style="color:#111">marker</span>::<span style="color:#111">StructuralEq</span> <span style="color:#00a8c8">for</span> <span style="color:#111">User</span> <span style="color:#111">{}</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#[automatically_derived]</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#[allow(unused_qualifications)]</span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">impl</span> ::<span style="color:#111">core</span>::<span style="color:#111">cmp</span>::<span style="color:#111">Eq</span> <span style="color:#00a8c8">for</span> <span style="color:#111">User</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">#[inline]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">#[doc(hidden)]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">#[no_coverage]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">fn</span> <span style="color:#75af00">assert_receiver_is_total_eq</span><span style="color:#111">(</span><span style="color:#f92672">&amp;</span><span style="color:#111">self</span><span style="color:#111">)</span> -&gt; <span style="color:#111">()</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#00a8c8">let</span> <span style="color:#111">_</span>: ::<span style="color:#111">core</span>::<span style="color:#111">cmp</span>::<span style="color:#111">AssertParamIsEq</span><span style="color:#f92672">&lt;</span><span style="color:#111">String</span><span style="color:#f92672">&gt;</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#00a8c8">let</span> <span style="color:#111">_</span>: ::<span style="color:#111">core</span>::<span style="color:#111">cmp</span>::<span style="color:#111">AssertParamIsEq</span><span style="color:#f92672">&lt;</span><span style="color:#00a8c8">u32</span><span style="color:#f92672">&gt;</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#00a8c8">let</span> <span style="color:#111">_</span>: ::<span style="color:#111">core</span>::<span style="color:#111">cmp</span>::<span style="color:#111">AssertParamIsEq</span><span style="color:#f92672">&lt;</span><span style="color:#111">String</span><span style="color:#f92672">&gt;</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">}</span>
+</span></span></code></pre></div><p>上面这段代码似乎没做什么事，其实从名字也可以看出差异 <code>PartialEq</code> 是<strong>局部等价</strong>，而<strong>完全等价</strong>需要满足：</p>
+<ul>
+<li>自反性： x == x</li>
+<li>对称性： x == y 意味着 y == x</li>
+<li>传递性： x == y, y == z, 意味着 x == z</li>
+</ul>
+<p><code>PartialEq</code> 和 <code>Eq</code> 的区别主要在于类型是否<strong>自反性</strong>，例如，因为在 Rust 中 <code>NaN != NaN</code>，所以对于浮点类型只实现了 <code>PartialEq</code>。 所以 <code>Eq</code> 的主要作用就是让编译器知道该类型具有自反性。也由此可知，<code>Eq</code> 需要基于 <code>PartialEq</code>实现。</p>
+</div>
+	</section>
+
+
+</article>
+
+		</main>
+		<div class="w-full h-0 flex-none order-3"></div>
+		<aside role="contentinfo"
+			class="w-full md:w-2/5 xl:w-1/2 md:pr-12 lg:pr-20 xl:pr-24 order-4 md:order-3 md:sticky md:bottom-0 self-end max-w-2xl">
+			<div class="md:float-right md:text-right leading-loose tracking-tight md:mb-2">
+				
+	<div class="md:max-w-xs  flex flex-col md:items-end">
+	<ul class="font-serif flex-grow-0 flex justify-between flex-wrap md:flex-col">
+	
+	
+	<li class="px-1 md:px-0">
+		<a href="/post/" title="Posts page" 
+			class="font-medium text-medium-red-violet-600 hover:text-medium-red-violet-400" >
+			Posts
+		</a>
+	</li>
+	
+	<li class="px-1 md:px-0">
+		<a href="/categories/" title="Categories page" >
+			Categories
+		</a>
+	</li>
+	
+	<li class="px-1 md:px-0">
+		<a href="/tags/" title="Tags page" >
+			Tags
+		</a>
+	</li>
+	
+	<li class="px-1 md:px-0">
+		<a href="/about/" title="About page" >
+			About
+		</a>
+	</li>
+	
+	
+	
+	
+	<div id="fastSearch" class="m-0">
+		<input id="searchInput" type="text" size=10 
+			class="bg-gray-100 focus:outline-none border-b border-gray-100 focus:border-eucalyptus-300 md:text-right
+			placeholder-java-500 min-w-0 max-w-xxxs"
+			placeholder="search" />
+		<ul id="searchResults" class="bg-gray-200 px-2 divide-y divide-gray-400">
+		</ul>
+	</div>
+	
+</ul>
+	
+
+<div class="flex flex-wrap-reverse md:justify-end content-end md:content-start justify-start items-start   max-h-16">
+	
+	<a href='https://github.com/DeerDean' target="_blank" class="github icon pl-1 text-eucalyptus-400 hover:text-java-400" title="github link" rel="noopener"
+		aria-label="follow on github——Opens in a new window">
+		
+		<div class="fill-current h-8 w-8">
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <g>
+        <path fill="none" d="M0 0h24v24H0z"/>
+        <path fill-rule="nonzero" d="M5.883 18.653c-.3-.2-.558-.455-.86-.816a50.32 50.32 0 0 1-.466-.579c-.463-.575-.755-.84-1.057-.949a1 1 0 0 1 .676-1.883c.752.27 1.261.735 1.947 1.588-.094-.117.34.427.433.539.19.227.33.365.44.438.204.137.587.196 1.15.14.023-.382.094-.753.202-1.095C5.38 15.31 3.7 13.396 3.7 9.64c0-1.24.37-2.356 1.058-3.292-.218-.894-.185-1.975.302-3.192a1 1 0 0 1 .63-.582c.081-.024.127-.035.208-.047.803-.123 1.937.17 3.415 1.096A11.731 11.731 0 0 1 12 3.315c.912 0 1.818.104 2.684.308 1.477-.933 2.613-1.226 3.422-1.096.085.013.157.03.218.05a1 1 0 0 1 .616.58c.487 1.216.52 2.297.302 3.19.691.936 1.058 2.045 1.058 3.293 0 3.757-1.674 5.665-4.642 6.392.125.415.19.879.19 1.38a300.492 300.492 0 0 1-.012 2.716 1 1 0 0 1-.019 1.958c-1.139.228-1.983-.532-1.983-1.525l.002-.446.005-.705c.005-.708.007-1.338.007-1.998 0-.697-.183-1.152-.425-1.36-.661-.57-.326-1.655.54-1.752 2.967-.333 4.337-1.482 4.337-4.66 0-.955-.312-1.744-.913-2.404a1 1 0 0 1-.19-1.045c.166-.414.237-.957.096-1.614l-.01.003c-.491.139-1.11.44-1.858.949a1 1 0 0 1-.833.135A9.626 9.626 0 0 0 12 5.315c-.89 0-1.772.119-2.592.35a1 1 0 0 1-.83-.134c-.752-.507-1.374-.807-1.868-.947-.144.653-.073 1.194.092 1.607a1 1 0 0 1-.189 1.045C6.016 7.89 5.7 8.694 5.7 9.64c0 3.172 1.371 4.328 4.322 4.66.865.097 1.201 1.177.544 1.748-.192.168-.429.732-.429 1.364v3.15c0 .986-.835 1.725-1.96 1.528a1 1 0 0 1-.04-1.962v-.99c-.91.061-1.662-.088-2.254-.485z"/>
+    </g>
+</svg>
+
+		</div>
+	</a>
+	
+	<a href='https://www.zhihu.com/people/ldblink/posts' target="_blank" class="zhihu icon pl-1 text-eucalyptus-400 hover:text-java-400" title="zhihu link" rel="noopener"
+		aria-label="follow on zhihu——Opens in a new window">
+		
+		<div class="fill-current h-8 w-8">
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <g>
+        <path fill="none" d="M0 0h24v24H0z"/>
+        <path d="M12.344 17.963l-1.688 1.074-2.131-3.35c-.44 1.402-1.172 2.665-2.139 3.825-.402.483-.82.918-1.301 1.375-.155.147-.775.717-.878.82l-1.414-1.414c.139-.139.787-.735.915-.856.43-.408.795-.79 1.142-1.206 1.266-1.518 2.03-3.21 2.137-5.231H3v-2h4V7h-.868c-.689 1.266-1.558 2.222-2.618 2.857L2.486 8.143c1.395-.838 2.425-2.604 3.038-5.36l1.952.434c-.14.633-.303 1.227-.489 1.783H11.5v2H9v4h2.5v2H9.185l3.159 4.963zm3.838-.07L17.298 17H19V7h-4v10h.736l.446.893zM13 5h8v14h-3l-2.5 2-1-2H13V5z"/>
+    </g>
+</svg>
+
+		</div>
+	</a>
+	
+</div>
+	<div class="text-sm text-gray-500 leading-tight a-gray">
+		© DeerDean
+		<br />
+		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 
+		<br />
+		714 words in this page.
+		<br />
+		<span id="busuanzi_container_site_pv">
+			本站总访问量<span id="busuanzi_value_site_pv"><i class="fa fa-spinner fa-spin"></i></span>次
+		</span>
+		<br />
+		<span id="busuanzi_container_site_uv">
+			访客数<span id="busuanzi_value_site_uv"><i class="fa fa-spinner fa-spin"></i></span>人次
+		</span>
+		<br />
+		<span id="busuanzi_container_page_pv">
+			本文总阅读量<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>次
+		</span>
+	</div>
+</div>
+
+			</div>
+		</aside>
+		<footer class="w-full md:w-3/5 xl:w-1/2 order-3 max-w-3xl md:order-4 pt-2">
+			
+<hr class="double-line" />
+<div class="flex flex-wrap justify-between pb-2 leading-loose font-serif">
+    
+    <a class="flex-grow-0" href="/post/20220609substrate-runtime/">
+        <svg class="fill-current inline-block h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
+            height="24">
+            <path fill="none" d="M0 0h24v24H0z" />
+            <path d="M7.828 11H20v2H7.828l5.364 5.364-1.414 1.414L4 12l7.778-7.778 1.414 1.414z" /></svg>
+        初识Substrate - Runtime
+    </a>
+    
+    
+</div>
+<div >
+
+
+
+</div>
+<hr />
+<div class="pb-2">
+    <script src="https://utteranc.es/client.js"
+        repo="DeerDean/deerdean.github.io"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+
+</div>
+<hr />
+
+		</footer>
+		
+
+<script src="/dist/app.js"></script>
+
+
+<script src="/lib/fuse.min.js"></script> 
+<script src="/lib/fastsearch.js"></script>
+
+	</div>
+</body>
+
+</html>

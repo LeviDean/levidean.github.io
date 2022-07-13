@@ -7,10 +7,37 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>cn</language>
     <copyright>© DeerDean</copyright>
-    <lastBuildDate>Thu, 09 Jun 2022 17:58:18 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 12 Jul 2022 23:12:12 +0800</lastBuildDate>
     
 	<atom:link href="https://deerdean.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Eq</title>
+      <link>https://deerdean.github.io/tags/eq/</link>
+      <pubDate>Tue, 12 Jul 2022 23:12:12 +0800</pubDate>
+      
+      <guid>https://deerdean.github.io/tags/eq/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Macro</title>
+      <link>https://deerdean.github.io/tags/macro/</link>
+      <pubDate>Tue, 12 Jul 2022 23:12:12 +0800</pubDate>
+      
+      <guid>https://deerdean.github.io/tags/macro/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>PartialEq</title>
+      <link>https://deerdean.github.io/tags/partialeq/</link>
+      <pubDate>Tue, 12 Jul 2022 23:12:12 +0800</pubDate>
+      
+      <guid>https://deerdean.github.io/tags/partialeq/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Runtime</title>
