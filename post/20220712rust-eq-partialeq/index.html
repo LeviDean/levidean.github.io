@@ -216,7 +216,7 @@ onload='renderMathInElement(document.body);'></script>
 </span></span><span style="display:flex;"><span><span style="color:#00a8c8">if</span> <span style="color:#111">user_a</span> <span style="color:#f92672">==</span> <span style="color:#111">user_b</span> <span style="color:#111">{</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#111">println!</span><span style="color:#111">(</span><span style="color:#d88200">&#34;Is the same person.&#34;</span><span style="color:#111">);</span>
 </span></span><span style="display:flex;"><span><span style="color:#111">}</span>
-</span></span></code></pre></div><p>显而易见，直接用 == 编译器一定会报错。编译器提醒我们 <code>User</code> 缺少 <code>PartialEq&lt;_&gt;</code> 的实现, 可以通过添加派生宏 <code>#[derive(PartialEq)]</code> 来结局这个问题：</p>
+</span></span></code></pre></div><p>显而易见，直接用 == 编译器一定会报错。编译器提醒我们 <code>User</code> 缺少 <code>PartialEq&lt;_&gt;</code> 的实现, 可以通过添加派生宏 <code>#[derive(PartialEq)]</code> 来解决这个问题：</p>
 <pre tabindex="0"><code>  --&gt; src/main.rs:11:15
    |
 11 |     if user_a == user_b {

@@ -31,7 +31,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#00a8c8&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;user_a&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;user_b&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;{&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#111&#34;&gt;println!&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#d88200&#34;&gt;&amp;#34;Is the same person.&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;);&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#111&#34;&gt;}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;显而易见，直接用 == 编译器一定会报错。编译器提醒我们 &lt;code&gt;User&lt;/code&gt; 缺少 &lt;code&gt;PartialEq&amp;lt;_&amp;gt;&lt;/code&gt; 的实现, 可以通过添加派生宏 &lt;code&gt;#[derive(PartialEq)]&lt;/code&gt; 来结局这个问题：&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;显而易见，直接用 == 编译器一定会报错。编译器提醒我们 &lt;code&gt;User&lt;/code&gt; 缺少 &lt;code&gt;PartialEq&amp;lt;_&amp;gt;&lt;/code&gt; 的实现, 可以通过添加派生宏 &lt;code&gt;#[derive(PartialEq)]&lt;/code&gt; 来解决这个问题：&lt;/p&gt;
 &lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;  --&amp;gt; src/main.rs:11:15
    |
 11 |     if user_a == user_b {
