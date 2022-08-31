@@ -19,7 +19,7 @@
       
       <guid>https://levidean.github.io/post/20220609substrate-runtime/</guid>
       <description>&lt;p&gt;运行时定义了哪些事务是有效或者无效的，并确定了链状态是如何响应事务并发生变化的。在 Substrate 中，运行时就是区块链的“状态转移函数”。 Substrate 的开发者主要做的一部分工作就是定义代表区块链状态的存储项和用来改变这些状态的&lt;strong&gt;函数&lt;/strong&gt;。
-&lt;img src=&#34;https://raw.githubusercontent.com/DeerDean/PicBed/main/imgs/202206091820650.png&#34; alt=&#34;&#34;&gt;
+&lt;img src=&#34;https://raw.githubusercontent.com/LeviDean/PicBed/main/imgs/202206091820650.png&#34; alt=&#34;&#34;&gt;
 在 Substrate 中运行时代码会被编译成 Wasm ，也可以编译成本地的 rust 运行时。启动节点时会根据版本信息来选择调用哪个运行时。除了运行时之外的其他代码（客户端）只会编译成本地的 rust 二进制，不会被编译成 Wasm 。
 比如 p2p 、 RPC 等。客户端在执行任务时，会通过 API 与运行时进行交互。&lt;/p&gt;
 &lt;p&gt;##运行时APIs
@@ -55,7 +55,7 @@
 FRAME 定义了额外的运行时原语，并提供了一个框架，能够更容易的通过组合模块来构建运行时, 这些模块叫作 &lt;a href=&#34;https://docs.substrate.io/v3/%E8%BF%90%E8%A1%8C%E6%97%B6/frame/#pallets&#34;&gt;&lt;code&gt;Pallets&lt;/code&gt;&lt;/a&gt;。
 每个 pallet 封装了特定领域的逻辑，例如存储项、事件、错误、调用函数。开发者可以创建自己的 pallet 也可以直接使用现成的 pallet， Substrate 提供了50多种不同的 pallets 。
 下面这张图示意了 pallet 和运行时的关系。有颜色的 pallets 被用来构建图片下方的运行时。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/DeerDean/PicBed/main/imgs/202206101058176.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/LeviDean/PicBed/main/imgs/202206101058176.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;对于 Substrate FRAME 构建的运行时还假定了另外一组原语：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Call&lt;/strong&gt;: The dispatch type that can be called via an extrinsic.&lt;/li&gt;
