@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Deer Park</title>
-    <link>https://deerdean.github.io/post/</link>
+    <link>https://levidean.github.io/post/</link>
     <description>Recent content in Posts on Deer Park</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>cn</language>
-    <copyright>© DeerDean</copyright>
+    <copyright>© Levi.D</copyright>
     <lastBuildDate>Tue, 12 Jul 2022 23:12:12 +0800</lastBuildDate>
     
-	<atom:link href="https://deerdean.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://levidean.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Rust中的Eq和PartialEq</title>
-      <link>https://deerdean.github.io/post/20220712rust-eq-partialeq/</link>
+      <link>https://levidean.github.io/post/20220712rust-eq-partialeq/</link>
       <pubDate>Tue, 12 Jul 2022 23:12:12 +0800</pubDate>
       
-      <guid>https://deerdean.github.io/post/20220712rust-eq-partialeq/</guid>
+      <guid>https://levidean.github.io/post/20220712rust-eq-partialeq/</guid>
       <description>&lt;h2 id=&#34;partialeq&#34;&gt;PartialEq&lt;/h2&gt;
 &lt;p&gt;我们先定义一个 &lt;code&gt;User&lt;/code&gt; struct：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-rust&#34; data-lang=&#34;rust&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#00a8c8&#34;&gt;struct&lt;/span&gt; &lt;span style=&#34;color:#75af00&#34;&gt;User&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;{&lt;/span&gt;
@@ -126,10 +126,10 @@ help: consider annotating `User` with `#[derive(PartialEq)]`
     
     <item>
       <title>初识Substrate - Runtime</title>
-      <link>https://deerdean.github.io/post/20220609substrate-runtime/</link>
+      <link>https://levidean.github.io/post/20220609substrate-runtime/</link>
       <pubDate>Thu, 09 Jun 2022 17:58:18 +0800</pubDate>
       
-      <guid>https://deerdean.github.io/post/20220609substrate-runtime/</guid>
+      <guid>https://levidean.github.io/post/20220609substrate-runtime/</guid>
       <description>&lt;p&gt;运行时定义了哪些事务是有效或者无效的，并确定了链状态是如何响应事务并发生变化的。在 Substrate 中，运行时就是区块链的“状态转移函数”。 Substrate 的开发者主要做的一部分工作就是定义代表区块链状态的存储项和用来改变这些状态的&lt;strong&gt;函数&lt;/strong&gt;。
 &lt;img src=&#34;https://raw.githubusercontent.com/DeerDean/PicBed/main/imgs/202206091820650.png&#34; alt=&#34;&#34;&gt;
 在 Substrate 中运行时代码会被编译成 Wasm ，也可以编译成本地的 rust 运行时。启动节点时会根据版本信息来选择调用哪个运行时。除了运行时之外的其他代码（客户端）只会编译成本地的 rust 二进制，不会被编译成 Wasm 。
@@ -184,10 +184,10 @@ FRAME 定义了额外的运行时原语，并提供了一个框架，能够更�
     
     <item>
       <title>搭建 Hugo &#43; Github Pages 博客</title>
-      <link>https://deerdean.github.io/post/20220530build-blog/</link>
+      <link>https://levidean.github.io/post/20220530build-blog/</link>
       <pubDate>Mon, 30 May 2022 08:51:20 +0800</pubDate>
       
-      <guid>https://deerdean.github.io/post/20220530build-blog/</guid>
+      <guid>https://levidean.github.io/post/20220530build-blog/</guid>
       <description>&lt;p&gt;觉得有必要搭建一下blog，记录一下自己的一些学习笔记。没有写网页的基础，又觉得租服务器和域名备案太麻烦了，所以选择了高效低成本的方法：&lt;strong&gt;github pages + 静态网站&lt;/strong&gt; 的方式。
 然后在&lt;a href=&#34;https://hexo.io/zh-cn/&#34;&gt;Hexo&lt;/a&gt;、&lt;a href=&#34;https://jekyllrb.com/&#34;&gt;Jekyll&lt;/a&gt;和&lt;a href=&#34;https://gohugo.io/&#34;&gt;Hugo&lt;/a&gt;中纠结了一番，虽然github pages自带Jekyll，但相比之下，Hugo的社区群体更大，也拥有更多的主题，因此就选择了使用Hugo来搭建。
 Hugo是用Golang写的，因此它生成网站的速度也更快一些。&lt;/p&gt;

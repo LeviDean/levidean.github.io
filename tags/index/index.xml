@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>index on Deer Park</title>
-    <link>https://deerdean.github.io/tags/index/</link>
+    <link>https://levidean.github.io/tags/index/</link>
     <description>Recent content in index on Deer Park</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>cn</language>
-    <copyright>© DeerDean</copyright>
+    <copyright>© Levi.D</copyright>
     
-	<atom:link href="https://deerdean.github.io/tags/index/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://levidean.github.io/tags/index/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Posts</title>
-      <link>https://deerdean.github.io/post/</link>
+      <link>https://levidean.github.io/post/</link>
       <pubDate>Tue, 12 Jul 2022 23:12:12 +0800</pubDate>
       
-      <guid>https://deerdean.github.io/post/</guid>
+      <guid>https://levidean.github.io/post/</guid>
       <description></description>
     </item>
     

@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Substrate on Deer Park</title>
-    <link>https://deerdean.github.io/tags/substrate/</link>
+    <link>https://levidean.github.io/tags/substrate/</link>
     <description>Recent content in Substrate on Deer Park</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>cn</language>
-    <copyright>© DeerDean</copyright>
+    <copyright>© Levi.D</copyright>
     <lastBuildDate>Thu, 09 Jun 2022 17:58:18 +0800</lastBuildDate>
     
-	<atom:link href="https://deerdean.github.io/tags/substrate/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://levidean.github.io/tags/substrate/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>初识Substrate - Runtime</title>
-      <link>https://deerdean.github.io/post/20220609substrate-runtime/</link>
+      <link>https://levidean.github.io/post/20220609substrate-runtime/</link>
       <pubDate>Thu, 09 Jun 2022 17:58:18 +0800</pubDate>
       
-      <guid>https://deerdean.github.io/post/20220609substrate-runtime/</guid>
+      <guid>https://levidean.github.io/post/20220609substrate-runtime/</guid>
       <description>&lt;p&gt;运行时定义了哪些事务是有效或者无效的，并确定了链状态是如何响应事务并发生变化的。在 Substrate 中，运行时就是区块链的“状态转移函数”。 Substrate 的开发者主要做的一部分工作就是定义代表区块链状态的存储项和用来改变这些状态的&lt;strong&gt;函数&lt;/strong&gt;。
 &lt;img src=&#34;https://raw.githubusercontent.com/DeerDean/PicBed/main/imgs/202206091820650.png&#34; alt=&#34;&#34;&gt;
 在 Substrate 中运行时代码会被编译成 Wasm ，也可以编译成本地的 rust 运行时。启动节点时会根据版本信息来选择调用哪个运行时。除了运行时之外的其他代码（客户端）只会编译成本地的 rust 二进制，不会被编译成 Wasm 。

@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Hugo on Deer Park</title>
-    <link>https://deerdean.github.io/tags/hugo/</link>
+    <link>https://levidean.github.io/tags/hugo/</link>
     <description>Recent content in Hugo on Deer Park</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>cn</language>
-    <copyright>© DeerDean</copyright>
+    <copyright>© Levi.D</copyright>
     <lastBuildDate>Mon, 30 May 2022 08:51:20 +0800</lastBuildDate>
     
-	<atom:link href="https://deerdean.github.io/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://levidean.github.io/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>搭建 Hugo &#43; Github Pages 博客</title>
-      <link>https://deerdean.github.io/post/20220530build-blog/</link>
+      <link>https://levidean.github.io/post/20220530build-blog/</link>
       <pubDate>Mon, 30 May 2022 08:51:20 +0800</pubDate>
       
-      <guid>https://deerdean.github.io/post/20220530build-blog/</guid>
+      <guid>https://levidean.github.io/post/20220530build-blog/</guid>
       <description>&lt;p&gt;觉得有必要搭建一下blog，记录一下自己的一些学习笔记。没有写网页的基础，又觉得租服务器和域名备案太麻烦了，所以选择了高效低成本的方法：&lt;strong&gt;github pages + 静态网站&lt;/strong&gt; 的方式。
 然后在&lt;a href=&#34;https://hexo.io/zh-cn/&#34;&gt;Hexo&lt;/a&gt;、&lt;a href=&#34;https://jekyllrb.com/&#34;&gt;Jekyll&lt;/a&gt;和&lt;a href=&#34;https://gohugo.io/&#34;&gt;Hugo&lt;/a&gt;中纠结了一番，虽然github pages自带Jekyll，但相比之下，Hugo的社区群体更大，也拥有更多的主题，因此就选择了使用Hugo来搭建。
 Hugo是用Golang写的，因此它生成网站的速度也更快一些。&lt;/p&gt;

@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Macro on Deer Park</title>
-    <link>https://deerdean.github.io/tags/macro/</link>
+    <link>https://levidean.github.io/tags/macro/</link>
     <description>Recent content in Macro on Deer Park</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>cn</language>
-    <copyright>© DeerDean</copyright>
+    <copyright>© Levi.D</copyright>
     <lastBuildDate>Tue, 12 Jul 2022 23:12:12 +0800</lastBuildDate>
     
-	<atom:link href="https://deerdean.github.io/tags/macro/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://levidean.github.io/tags/macro/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Rust中的Eq和PartialEq</title>
-      <link>https://deerdean.github.io/post/20220712rust-eq-partialeq/</link>
+      <link>https://levidean.github.io/post/20220712rust-eq-partialeq/</link>
       <pubDate>Tue, 12 Jul 2022 23:12:12 +0800</pubDate>
       
-      <guid>https://deerdean.github.io/post/20220712rust-eq-partialeq/</guid>
+      <guid>https://levidean.github.io/post/20220712rust-eq-partialeq/</guid>
       <description>&lt;h2 id=&#34;partialeq&#34;&gt;PartialEq&lt;/h2&gt;
 &lt;p&gt;我们先定义一个 &lt;code&gt;User&lt;/code&gt; struct：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-rust&#34; data-lang=&#34;rust&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#00a8c8&#34;&gt;struct&lt;/span&gt; &lt;span style=&#34;color:#75af00&#34;&gt;User&lt;/span&gt; &lt;span style=&#34;color:#111&#34;&gt;{&lt;/span&gt;
