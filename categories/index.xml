@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>cn</language>
     <copyright>© Levi.D</copyright>
-    <lastBuildDate>Tue, 12 Jul 2022 23:12:12 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 02 Sep 2022 19:12:21 +0800</lastBuildDate>
     
 	<atom:link href="https://levidean.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Blockchain</title>
+      <link>https://levidean.github.io/categories/blockchain/</link>
+      <pubDate>Fri, 02 Sep 2022 19:12:21 +0800</pubDate>
+      
+      <guid>https://levidean.github.io/categories/blockchain/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Rust</title>
@@ -18,15 +27,6 @@
       <pubDate>Tue, 12 Jul 2022 23:12:12 +0800</pubDate>
       
       <guid>https://levidean.github.io/categories/rust/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Blockchain</title>
-      <link>https://levidean.github.io/categories/blockchain/</link>
-      <pubDate>Thu, 09 Jun 2022 17:58:18 +0800</pubDate>
-      
-      <guid>https://levidean.github.io/categories/blockchain/</guid>
       <description></description>
     </item>
     

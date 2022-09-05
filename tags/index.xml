@@ -7,10 +7,37 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>cn</language>
     <copyright>© Levi.D</copyright>
-    <lastBuildDate>Tue, 12 Jul 2022 23:12:12 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 02 Sep 2022 19:12:21 +0800</lastBuildDate>
     
 	<atom:link href="https://levidean.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Pallet</title>
+      <link>https://levidean.github.io/tags/pallet/</link>
+      <pubDate>Fri, 02 Sep 2022 19:12:21 +0800</pubDate>
+      
+      <guid>https://levidean.github.io/tags/pallet/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>PoE</title>
+      <link>https://levidean.github.io/tags/poe/</link>
+      <pubDate>Fri, 02 Sep 2022 19:12:21 +0800</pubDate>
+      
+      <guid>https://levidean.github.io/tags/poe/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Substrate</title>
+      <link>https://levidean.github.io/tags/substrate/</link>
+      <pubDate>Fri, 02 Sep 2022 19:12:21 +0800</pubDate>
+      
+      <guid>https://levidean.github.io/tags/substrate/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Eq</title>
@@ -45,15 +72,6 @@
       <pubDate>Thu, 09 Jun 2022 17:58:18 +0800</pubDate>
       
       <guid>https://levidean.github.io/tags/runtime/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Substrate</title>
-      <link>https://levidean.github.io/tags/substrate/</link>
-      <pubDate>Thu, 09 Jun 2022 17:58:18 +0800</pubDate>
-      
-      <guid>https://levidean.github.io/tags/substrate/</guid>
       <description></description>
     </item>
     

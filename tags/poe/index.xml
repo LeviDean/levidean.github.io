@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Substrate on Deer Park</title>
-    <link>https://levidean.github.io/tags/substrate/</link>
-    <description>Recent content in Substrate on Deer Park</description>
+    <title>PoE on Deer Park</title>
+    <link>https://levidean.github.io/tags/poe/</link>
+    <description>Recent content in PoE on Deer Park</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>cn</language>
     <copyright>© Levi.D</copyright>
     <lastBuildDate>Fri, 02 Sep 2022 19:12:21 +0800</lastBuildDate>
     
-	<atom:link href="https://levidean.github.io/tags/substrate/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://levidean.github.io/tags/poe/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -125,64 +125,6 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#111&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;code&gt;execute_with&lt;/code&gt; 可以传入一个闭包来执行，并返回结果。&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://paritytech.github.io/substrate/master/src/sp_state_machine/testing.rs.html#193&#34;&gt;https://paritytech.github.io/substrate/master/src/sp_state_machine/testing.rs.html#193&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>初识Substrate - Runtime</title>
-      <link>https://levidean.github.io/post/20220609substrate-runtime/</link>
-      <pubDate>Thu, 09 Jun 2022 17:58:18 +0800</pubDate>
-      
-      <guid>https://levidean.github.io/post/20220609substrate-runtime/</guid>
-      <description>&lt;p&gt;运行时定义了哪些事务是有效或者无效的，并确定了链状态是如何响应事务并发生变化的。在 Substrate 中，运行时就是区块链的“状态转移函数”。 Substrate 的开发者主要做的一部分工作就是定义代表区块链状态的存储项和用来改变这些状态的&lt;strong&gt;函数&lt;/strong&gt;。
-&lt;img src=&#34;https://raw.githubusercontent.com/LeviDean/PicBed/main/imgs/202206091820650.png&#34; alt=&#34;&#34;&gt;
-在 Substrate 中运行时代码会被编译成 Wasm ，也可以编译成本地的 rust 运行时。启动节点时会根据版本信息来选择调用哪个运行时。除了运行时之外的其他代码（客户端）只会编译成本地的 rust 二进制，不会被编译成 Wasm 。
-比如 p2p 、 RPC 等。客户端在执行任务时，会通过 API 与运行时进行交互。&lt;/p&gt;
-&lt;p&gt;##运行时APIs
-在 Substrate 中，可以通过 &lt;code&gt;sp_api&lt;/code&gt; crate 让开发者制定运行时API 。但要保证运行时必须实现 Core 运行时 API 和 Metadata 运行时 API 。
-基础的 Substrate 节点实现了一些运行时API：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;BlockBuilder&lt;/strong&gt;: Provides the functionality required for building a block.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;TaggedTransactionQueue&lt;/strong&gt;: Handles validating transactions in the transaction queue.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;OffchainWorkerApi&lt;/strong&gt;: Handles off-chain capabilities.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;AuraApi&lt;/strong&gt;: Handles block authorship with Aura consensus.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;SessionKeys&lt;/strong&gt;: Generates and decodes session keys.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;GrandpaApi&lt;/strong&gt;: Integrates the GRANDPA finality gadget into the runtime.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;AccountNonceApi&lt;/strong&gt;: Handles querying transaction indices.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;TransactionPaymentApi&lt;/strong&gt;: Handles querying information about transactions.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Benchmark&lt;/strong&gt;: Provides a way to benchmark a FRAME runtime.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;除此之外的一些 API 可以由开发者来声明并实现。
-通常在运行时外使用宏 &lt;a href=&#34;https://paritytech.github.io/substrate/master/sp_api/macro.decl_%E8%BF%90%E8%A1%8C%E6%97%B6_apis.html&#34;&gt;decl_运行时_apis&lt;/a&gt; 声明 API ，
-然后在运行时里面使用宏 &lt;a href=&#34;https://paritytech.github.io/substrate/master/sp_api/macro.impl_%E8%BF%90%E8%A1%8C%E6%97%B6_apis.html&#34;&gt;impl_运行时_apis&lt;/a&gt; 进行实现。&lt;/p&gt;
-&lt;h2 id=&#34;core-primitives&#34;&gt;Core primitives&lt;/h2&gt;
-&lt;p&gt;为了保证运行时可以与 Substrate 框架中的其他部分一同工作。运行时 必须要实现一些核心原语，有些数据类型必须要被定义并提供一个特定的接口。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Hash&lt;/strong&gt;: A type which encodes a cryptographic digest of some data. Typically just a 256-bit quantity.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;DigestItem&lt;/strong&gt;: A type which must be able to encode one of a number of &amp;ldquo;hard-wired&amp;rdquo; alternatives relevant to consensus and change-tracking as well as any number of &amp;ldquo;soft-coded&amp;rdquo; variants, relevant to specific modules within the runtime.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Digest&lt;/strong&gt;: A series of DigestItems. This encodes all information that is relevant for a light-client to have on hand within the block.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Extrinsic&lt;/strong&gt;: A type to represent a single piece of data external to the blockchain that is recognized by the blockchain. This typically involves one or more signatures, and some sort of encoded instructions (e.g. for transferring ownership of funds or calling into a smart contract).&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Header&lt;/strong&gt;: A type which is representative (cryptographically or otherwise) of all information relevant to a block. It includes the parent hash, the storage root and the extrinsics trie root, the digest and a block number.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Block&lt;/strong&gt;: Essentially just a combination of Header and a series of Extrinsics, together with a specification of the hashing algorithm to be used.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;BlockNumber&lt;/strong&gt;: A type which encodes the total number of ancestors any valid block has. Typically a 32-bit quantity.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;frame-primitives&#34;&gt;FRAME primitives&lt;/h2&gt;
-&lt;p&gt;Substrate 的代码库中自带 &lt;a href=&#34;https://docs.substrate.io/v3/%E8%BF%90%E8%A1%8C%E6%97%B6/frame/&#34;&gt;&lt;code&gt;FRAME&lt;/code&gt;&lt;/a&gt;，一个用于 Substrate运行时开发系统。
-FRAME 定义了额外的运行时原语，并提供了一个框架，能够更容易的通过组合模块来构建运行时, 这些模块叫作 &lt;a href=&#34;https://docs.substrate.io/v3/%E8%BF%90%E8%A1%8C%E6%97%B6/frame/#pallets&#34;&gt;&lt;code&gt;Pallets&lt;/code&gt;&lt;/a&gt;。
-每个 pallet 封装了特定领域的逻辑，例如存储项、事件、错误、调用函数。开发者可以创建自己的 pallet 也可以直接使用现成的 pallet， Substrate 提供了50多种不同的 pallets 。
-下面这张图示意了 pallet 和运行时的关系。有颜色的 pallets 被用来构建图片下方的运行时。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://raw.githubusercontent.com/LeviDean/PicBed/main/imgs/202206101058176.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
-&lt;p&gt;对于 Substrate FRAME 构建的运行时还假定了另外一组原语：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Call&lt;/strong&gt;: The dispatch type that can be called via an extrinsic.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Origin&lt;/strong&gt;: Represents where a call came from. For example, a signed message (a transaction), an unsigned message (an inherent extrinsic), or a call from the runtime itself (a root call).&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Index&lt;/strong&gt;: An account index (aka nonce) type. This stores the number of previous transactions associated with a sender account.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Hashing&lt;/strong&gt;: The hashing algorithm being used in the runtime (e.g. Blake2).&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;AccountId&lt;/strong&gt;: The type used to identify user accounts in the runtime.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Event&lt;/strong&gt;: The type used for events emitted by the runtime.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Version&lt;/strong&gt;: A type which represents the version of the runtime.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;虽然很多运行时开发都可以使用 FRAME 及其相关原语，但 FRAME 并不是开发 Substrate 区块链的唯一途径。&lt;/p&gt;
 </description>
     </item>
     
