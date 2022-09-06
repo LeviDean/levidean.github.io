@@ -58,7 +58,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#111&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#111&#34;&gt;impl_const_get&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;!&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;ConstU32&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#00a8c8&#34;&gt;u32&lt;/span&gt;&lt;span style=&#34;color:#111&#34;&gt;);&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;code&gt;Get&amp;lt;T&amp;gt;&lt;/code&gt; 可以通过 &lt;code&gt;get()&lt;/code&gt; 得到常量泛型的值。&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;实现了 &lt;code&gt;Get&lt;/code&gt; trait，可以通过 &lt;code&gt;get()&lt;/code&gt; 得到常量泛型 &lt;code&gt;T&lt;/code&gt; 的值。&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://paritytech.github.io/substrate/master/frame_support/pallet_prelude/trait.Get.html&#34;&gt;https://paritytech.github.io/substrate/master/frame_support/pallet_prelude/trait.Get.html&lt;/a&gt;
 &lt;a href=&#34;https://paritytech.github.io/substrate/master/src/sp_runtime/traits.rs.html#322&#34;&gt;https://paritytech.github.io/substrate/master/src/sp_runtime/traits.rs.html#322&lt;/a&gt;&lt;/p&gt;
 &lt;h3 id=&#34;q3-frame_supportboundedvec&#34;&gt;Q3. frame_support::BoundedVec&lt;/h3&gt;
